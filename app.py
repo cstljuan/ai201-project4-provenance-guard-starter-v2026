@@ -30,6 +30,7 @@ from flask import Flask, jsonify, request
 
 import audit
 import config
+import detector
 
 app = Flask(__name__)
 
@@ -199,17 +200,81 @@ def submit():
     what should this do when `text` is missing, empty, or enormous? A crash on
     a malformed input is one of the most common real failures there is.
     """
-    payload = request.get_json(silent=True) or {}
+    payload = request.get_json(silent=True)
+    problem = _validate_submission(payload)
+    if problem:
+        creator = payload.get("creator_id") if isinstance(payload, dict) else None
+        audit.log_rejection(
+            creator_id=creator if isinstance(creator, str) else "unknown",
+            reason=problem["error"],
+        )
+        return jsonify(problem), 400
 
-    # TODO: delete this and build the route.
+    text = payload["text"].strip()
+    creator_id = payload["creator_id"].strip()
+    content_id = uuid.uuid4().hex[:12]
+
+    try:
+        model_score = detector.model_signal(text)
+    except detector.DetectorUnavailable as exc:
+        return jsonify({"error": "detector_unavailable", "message": str(exc)}), 503
+
+    # Milestone 3: one real signal, placeholders for the rest.
+    guess, confidence, label = "pending", None, "PLACEHOLDER: label comes in Milestone 5."
+
+    audit.log_decision(
+        content_id=content_id,
+        creator_id=creator_id,
+        guess=guess,
+        model_score=model_score,
+        label=label,
+    )
     return jsonify({
-        "error": "not_implemented",
-        "message": "POST /submit isn't built yet — see the TODO in app.py.",
-        "you_sent": {
-            "text_length": len(payload.get("text", "")),
-            "creator_id": payload.get("creator_id"),
-        },
-    }), 501
+        "content_id": content_id,
+        "creator_id": creator_id,
+        "guess": guess,
+        "confidence": confidence,
+        "label": label,
+        "model_score": model_score,
+        "style_score": None,
+        "status": "decided",
+    })
+
+
+def _validate_submission(payload) -> dict | None:
+    """
+    Refuse anything that can't honestly be judged. Returns an error body, or
+    None if the submission is fine. Criterion 5 in criteria.md is the contract.
+    """
+    if not isinstance(payload, dict):
+        return {"error": "invalid_json", "message": "Send a JSON object with text and creator_id."}
+
+    creator_id = payload.get("creator_id")
+    if not isinstance(creator_id, str) or not creator_id.strip():
+        return {"error": "missing_creator_id", "message": "creator_id is required."}
+
+    text = payload.get("text")
+    if "text" not in payload or text is None:
+        return {"error": "missing_text", "message": "text is required."}
+    if not isinstance(text, str):
+        return {"error": "text_not_string", "message": "text must be a string."}
+    if not text.strip():
+        return {"error": "empty_text", "message": "text is empty."}
+
+    word_count = len(text.split())
+    if word_count < config.MIN_WORDS:
+        return {
+            "error": "text_too_short",
+            "message": f"We need at least {config.MIN_WORDS} words to say anything "
+                       f"useful about a piece. This one has {word_count}.",
+        }
+    if word_count > config.MAX_WORDS:
+        return {
+            "error": "text_too_long",
+            "message": f"Submissions are limited to {config.MAX_WORDS} words. "
+                       f"This one has {word_count}.",
+        }
+    return None
 
 
 @app.post("/appeal")

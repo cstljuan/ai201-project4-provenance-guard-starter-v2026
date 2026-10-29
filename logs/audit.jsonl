@@ -1,0 +1,3 @@
+{"timestamp": "2026-10-29T15:19:05+00:00", "content_id": "137ce09e584d", "creator_id": "juan", "guess": "pending", "model_score": 0.881, "style_score": null, "combined_score": null, "label": "PLACEHOLDER: label comes in Milestone 5.", "status": "decided"}
+{"timestamp": "2026-10-29T15:19:05+00:00", "creator_id": "juan", "event": "rejected", "status": "rejected", "reason": "text_too_short"}
+{"timestamp": "2026-10-29T15:19:05+00:00", "creator_id": "unknown", "event": "rejected", "status": "rejected", "reason": "invalid_json"}
