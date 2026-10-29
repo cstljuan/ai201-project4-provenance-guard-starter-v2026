@@ -19,44 +19,45 @@ you claim, so that line should read `scoring.py::combine_signals`.
 import config
 
 
-def combine_signals(model_score: float, style_score: float) -> float:
+def combine_signals(model_score: float, style_score: float,
+                    phrase_score: float | None = None) -> float:
     """
-    Combine two 0–1 signals into one 0–1 score. ← TODO (Milestone 4)
+    Combine the signals into one 0-1 score. Higher means more likely AI.
 
-    Both inputs point the same way: higher means more likely AI. Your output
-    should too.
+    The rule, in words:
 
-    Args:
-        model_score: from `detector.model_signal` — how predictable the text is.
-        style_score: from `stylometry.style_signal` — the shape of the text.
+      1. Weighted average: model 0.40, style 0.30, phrases 0.30 (config.py).
+         With no phrase score, the model and style weights are rescaled to
+         sum to 1.
+      2. Disagreement pulls toward the middle. When the model and style
+         signals are more than DISAGREEMENT_GAP apart, the combined score is
+         pulled halfway back toward 0.5. Two methods disagreeing IS
+         uncertainty, and "unsure" is the label that costs a real writer
+         least.
+      3. Nothing is called AI on one signal alone. If the score lands in the
+         AI band but the style signal reads human-ish (below 0.5), the score
+         is capped just under the AI threshold, so it shows as "unsure".
 
-    Returns:
-        A float from 0.0 (confidently human) to 1.0 (confidently AI).
-
-    ⚠️ **Write the rule down before you code it, and put the numbers in your
-    README.** A weighted average is the obvious choice and it is not the only
-    one. Things worth thinking about:
-
-      - **What happens when they disagree?** One signal at 0.9 and the other at
-        0.1 averages to 0.5 — "unsure". Is that what you want? It might be
-        exactly right: two methods disagreeing IS uncertainty. Or you might
-        decide one signal is more trustworthy when they split.
-
-      - **Which way do you want to be wrong?** Weighting toward the signal that
-        reads more human means fewer false accusations and more AI text
-        getting through. There's no weighting that avoids the trade.
-
-      - Milestone 4 asks you to find a case where your two signals split and
-        write it down. That case is what this rule exists to handle.
-
-    The weights in config.py are placeholders. Change them, or ignore them and
-    write a different rule.
+    Rules 2 and 3 only ever move a score away from "ai", never toward it.
+    That's the false-positive decision from Milestone 1: a missed detection
+    is cheaper than a wrong accusation.
     """
-    # TODO: replace this
-    return (
-        config.WEIGHT_MODEL_SIGNAL * model_score
-        + config.WEIGHT_STYLE_SIGNAL * style_score
-    )
+    if phrase_score is None:
+        total = config.WEIGHT_MODEL_SIGNAL + config.WEIGHT_STYLE_SIGNAL
+        score = (config.WEIGHT_MODEL_SIGNAL * model_score
+                 + config.WEIGHT_STYLE_SIGNAL * style_score) / total
+    else:
+        score = (config.WEIGHT_MODEL_SIGNAL * model_score
+                 + config.WEIGHT_STYLE_SIGNAL * style_score
+                 + config.WEIGHT_PHRASE_SIGNAL * phrase_score)
+
+    if abs(model_score - style_score) > config.DISAGREEMENT_GAP:
+        score = 0.5 + (score - 0.5) * 0.5
+
+    if score >= config.AI_THRESHOLD and style_score < 0.5:
+        score = config.AI_THRESHOLD - 0.01
+
+    return round(min(max(score, 0.0), 1.0), 4)
 
 
 def score_to_label(score: float) -> tuple[str, str]:
