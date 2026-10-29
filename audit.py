@@ -112,6 +112,20 @@ def log_rejection(creator_id: str, reason: str, **extra) -> dict:
     })
 
 
+def log_event(event: str, creator_id: str, status: str, **extra) -> dict:
+    """
+    Record any other event: the verified-human path's challenge, pass and fail
+    steps. Same shape as an appeal: event, status, creator, and whatever else.
+    """
+    return _append({
+        "timestamp": _now(),
+        "creator_id": creator_id,
+        "event": event,
+        "status": status,
+        **extra,
+    })
+
+
 def _append(entry: dict) -> dict:
     config.LOG_DIR.mkdir(parents=True, exist_ok=True)
     line = json.dumps(entry, ensure_ascii=False)

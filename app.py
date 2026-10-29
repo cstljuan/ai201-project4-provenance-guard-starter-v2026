@@ -21,6 +21,7 @@ Routes:
     POST /submit      ← YOU BUILD THIS (Milestone 3, 4, 5)
     POST /appeal      ← YOU BUILD THIS (Milestone 5)
     GET  /content/<id> one item's current status (stretch)
+    POST /verify/start, /verify/complete   the verified-human path (stretch)
     GET  /log         the audit log. Already works
     GET  /health      is the service up, and is the model loaded
 """
@@ -227,6 +228,9 @@ def submit():
     confidence = scoring.combine_signals(model_score, style_score, phrase_score)
 
     guess, label = scoring.score_to_label(confidence)
+    creator_verified = _is_verified(creator_id)
+    if creator_verified:
+        label = f"{label} {VERIFIED_NOTE}"
 
     audit.log_decision(
         content_id=content_id,
@@ -237,6 +241,7 @@ def submit():
         combined_score=confidence,
         label=label,
         phrase_score=phrase_score,
+        creator_verified=creator_verified,
     )
     return jsonify({
         "content_id": content_id,
@@ -247,6 +252,7 @@ def submit():
         "model_score": model_score,
         "style_score": style_score,
         "phrase_score": phrase_score,
+        "creator_verified": creator_verified,
         "status": "decided",
     })
 
@@ -378,6 +384,120 @@ def _latest_decision(content_id: str) -> dict | None:
     """The decision entry for a content_id, or None if it was never decided."""
     decisions = [e for e in audit.entries_for(content_id) if "event" not in e]
     return decisions[-1] if decisions else None
+
+
+# ── Verified-human path (stretch) ────────────────────────────────────────────
+#
+# A writer earns a credential by writing a short piece to a prompt they only
+# see once they ask, inside a time limit. That's an extra step a copy-paste
+# from an existing AI essay can't take, and the piece still has to clear the
+# detector. Every step is an audit-log event, so the credential is traceable.
+
+VERIFY_PROMPTS = [
+    "Describe the room you're sitting in right now, and one thing in it that has a story.",
+    "Write about a meal you remember, and who you ate it with.",
+    "Tell us about the last time you got lost, or almost did.",
+    "Describe a sound from your neighborhood that you would miss if it stopped.",
+    "Write about something you changed your mind about, and what did it.",
+]
+VERIFY_MIN_WORDS = 60
+VERIFY_TIME_LIMIT_SECONDS = 15 * 60
+VERIFIED_NOTE = "This writer has completed our verified-writer check."
+
+
+def _is_verified(creator_id: str) -> bool:
+    return any(
+        e.get("event") == "verified" and e.get("creator_id") == creator_id
+        for e in audit.read_entries()
+    )
+
+
+@app.post("/verify/start")
+def verify_start():
+    """Step one: ask for a challenge. Returns a prompt and a challenge_id."""
+    payload = request.get_json(silent=True)
+    creator_id = payload.get("creator_id") if isinstance(payload, dict) else None
+    if not isinstance(creator_id, str) or not creator_id.strip():
+        return jsonify({"error": "missing_creator_id", "message": "creator_id is required."}), 400
+    creator_id = creator_id.strip()
+
+    if _is_verified(creator_id):
+        return jsonify({"creator_id": creator_id, "verified": True,
+                        "message": "You're already verified."})
+
+    challenge_id = uuid.uuid4().hex[:12]
+    prompt = VERIFY_PROMPTS[int(challenge_id, 16) % len(VERIFY_PROMPTS)]
+    audit.log_event("verify_start", creator_id, "challenge_open",
+                    challenge_id=challenge_id, prompt=prompt)
+    return jsonify({
+        "challenge_id": challenge_id,
+        "prompt": prompt,
+        "min_words": VERIFY_MIN_WORDS,
+        "time_limit_seconds": VERIFY_TIME_LIMIT_SECONDS,
+        "message": "Write a response to this prompt in your own words and send it "
+                   "to /verify/complete before the time runs out.",
+    })
+
+
+@app.post("/verify/complete")
+def verify_complete():
+    """Step two: answer the prompt. Passing earns the verified_human credential."""
+    from datetime import datetime, timezone
+
+    payload = request.get_json(silent=True)
+    if not isinstance(payload, dict):
+        return jsonify({"error": "invalid_json",
+                        "message": "Send a JSON object with challenge_id and text."}), 400
+    challenge_id, text = payload.get("challenge_id"), payload.get("text")
+    if not isinstance(challenge_id, str) or not isinstance(text, str) or not text.strip():
+        return jsonify({"error": "missing_fields",
+                        "message": "challenge_id and text are required."}), 400
+
+    events = [e for e in audit.read_entries() if e.get("challenge_id") == challenge_id]
+    start = next((e for e in events if e.get("event") == "verify_start"), None)
+    if start is None:
+        return jsonify({"error": "not_found", "message": "No such challenge."}), 404
+    if any(e.get("event") in ("verified", "verify_failed") for e in events):
+        return jsonify({"error": "challenge_used",
+                        "message": "This challenge was already answered. Start a new one."}), 409
+
+    creator_id = start["creator_id"]
+    started = datetime.fromisoformat(start["timestamp"])
+    elapsed = (datetime.now(timezone.utc) - started).total_seconds()
+
+    def fail(reason, message, **scores):
+        audit.log_event("verify_failed", creator_id, "not_verified",
+                        challenge_id=challenge_id, reason=reason, **scores)
+        return jsonify({"verified": False, "reason": reason, "message": message}), 200
+
+    if elapsed > VERIFY_TIME_LIMIT_SECONDS:
+        return fail("expired", "The time limit passed. You can start a new challenge.")
+    if len(text.split()) < VERIFY_MIN_WORDS:
+        return fail("too_short", f"Please write at least {VERIFY_MIN_WORDS} words.")
+
+    model_score = detector.model_signal(text)
+    style_score = stylometry.style_signal(text)
+    phrase_score = phrases.phrase_signal(text)
+    confidence = scoring.combine_signals(model_score, style_score, phrase_score)
+    guess, _ = scoring.score_to_label(confidence)
+    scores = {"model_score": model_score, "style_score": style_score,
+              "phrase_score": phrase_score, "combined_score": confidence}
+    if guess == "ai":
+        return fail("scored_as_ai",
+                    "We couldn't verify this one. You can try again with a new prompt, "
+                    "and nothing about your existing work changes.", **scores)
+
+    credential_id = f"vh_{uuid.uuid4().hex[:10]}"
+    audit.log_event("verified", creator_id, "verified_human",
+                    challenge_id=challenge_id, credential_id=credential_id, **scores)
+    return jsonify({
+        "verified": True,
+        "creator_id": creator_id,
+        "credential": "verified_human",
+        "credential_id": credential_id,
+        "message": "You're verified. Your future submissions will show that you "
+                   "completed our verified-writer check.",
+    })
 
 
 # ── Already works ─────────────────────────────────────────────────────────────
