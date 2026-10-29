@@ -25,6 +25,31 @@
 
 ---
 
+## Stretch Features (declared before building)
+
+I'm attempting all three stretch features this unit. This section was written and
+committed before any of them was built, so the commit history shows the plan came
+first.
+
+1. **A third signal: stock-phrase density.** It counts how often the text uses
+   stock phrases and filler words that language models lean on ("it is important
+   to note", "delve", "in conclusion", "furthermore"), per 100 words. It measures
+   word *choice*. Signal one measures predictability and signal two measures
+   shape, so this is a third, separate idea. How the three are weighted against
+   each other will be written up in Signals and Scoring once it's built.
+2. **`GET /content/<id>`.** Returns one item's current state: its latest decision,
+   its status (`decided` or `under_review`), and any appeal on record. Built from
+   the audit log, so it can't drift from what the log says.
+3. **A verified-human path.** A writer asks for a challenge with
+   `POST /verify/start` and gets a short prompt back. They answer it with
+   `POST /verify/complete` within a time limit. If the answer is long enough and
+   doesn't score as high-confidence AI, the creator earns a `verified_human`
+   credential, recorded in the audit log. From then on, every `/submit` from
+   that creator carries `"creator_verified": true`, and the label a reader sees
+   says so.
+
+---
+
 <!-- ─────────────────────────────────────────────────────────────────────────
      Unit 7 asks for the first five sections. Unit 8 adds the five below.
 
