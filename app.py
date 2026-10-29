@@ -20,6 +20,7 @@ Routes:
     POST /ping        the worked example. Already works. Don't edit it
     POST /submit      ← YOU BUILD THIS (Milestone 3, 4, 5)
     POST /appeal      ← YOU BUILD THIS (Milestone 5)
+    GET  /content/<id> one item's current status (stretch)
     GET  /log         the audit log. Already works
     GET  /health      is the service up, and is the model loaded
 """
@@ -225,8 +226,7 @@ def submit():
     phrase_score = phrases.phrase_signal(text)
     confidence = scoring.combine_signals(model_score, style_score, phrase_score)
 
-    # Label text comes in Milestone 5.
-    guess, label = "pending", "PLACEHOLDER: label comes in Milestone 5."
+    guess, label = scoring.score_to_label(confidence)
 
     audit.log_decision(
         content_id=content_id,
@@ -307,14 +307,77 @@ def appeal():
     to the person on the other end. It's the only thing standing between a
     wrong accusation and nothing at all.
     """
-    payload = request.get_json(silent=True) or {}
+    payload = request.get_json(silent=True)
+    if not isinstance(payload, dict):
+        return jsonify({"error": "invalid_json",
+                        "message": "Send a JSON object with content_id and reasoning."}), 400
 
-    # TODO: delete this and build the route.
+    content_id = payload.get("content_id")
+    reasoning = payload.get("reasoning")
+    if not isinstance(content_id, str) or not content_id.strip():
+        return jsonify({"error": "missing_content_id", "message": "content_id is required."}), 400
+    if not isinstance(reasoning, str) or not reasoning.strip():
+        return jsonify({"error": "missing_reasoning",
+                        "message": "Tell us why you think the label is wrong."}), 400
+
+    decision = _latest_decision(content_id.strip())
+    if decision is None:
+        return jsonify({"error": "not_found",
+                        "message": f"No submission with content_id '{content_id}'."}), 404
+
+    audit.log_appeal(
+        content_id=decision["content_id"],
+        creator_id=decision["creator_id"],
+        reasoning=reasoning.strip(),
+    )
     return jsonify({
-        "error": "not_implemented",
-        "message": "POST /appeal isn't built yet — see the TODO in app.py.",
-        "you_sent": payload,
-    }), 501
+        "content_id": decision["content_id"],
+        "status": "under_review",
+        "message": "Thanks. Your appeal is recorded and this piece is now marked "
+                   "as under review. The original label stays on file, and a "
+                   "person will look at it with your reasoning.",
+        "original_guess": decision.get("guess"),
+        "original_label": decision.get("label"),
+    })
+
+
+@app.get("/content/<content_id>")
+def content(content_id):
+    """
+    One item's current state (stretch feature): the latest decision, the
+    current status, and every appeal on record. Read from the audit log, so it
+    can't disagree with it.
+    """
+    entries = audit.entries_for(content_id)
+    decision = _latest_decision(content_id)
+    if decision is None:
+        return jsonify({"error": "not_found",
+                        "message": f"No submission with content_id '{content_id}'."}), 404
+
+    appeals = [
+        {"timestamp": e["timestamp"], "reasoning": e.get("reasoning")}
+        for e in entries if e.get("event") == "appeal"
+    ]
+    return jsonify({
+        "content_id": content_id,
+        "creator_id": decision["creator_id"],
+        "status": entries[-1].get("status", "decided"),
+        "guess": decision.get("guess"),
+        "confidence": decision.get("combined_score"),
+        "label": decision.get("label"),
+        "model_score": decision.get("model_score"),
+        "style_score": decision.get("style_score"),
+        "phrase_score": decision.get("phrase_score"),
+        "creator_verified": decision.get("creator_verified", False),
+        "submitted_at": decision["timestamp"],
+        "appeals": appeals,
+    })
+
+
+def _latest_decision(content_id: str) -> dict | None:
+    """The decision entry for a content_id, or None if it was never decided."""
+    decisions = [e for e in audit.entries_for(content_id) if "event" not in e]
+    return decisions[-1] if decisions else None
 
 
 # ── Already works ─────────────────────────────────────────────────────────────

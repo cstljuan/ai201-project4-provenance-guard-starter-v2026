@@ -86,12 +86,31 @@ def score_to_label(score: float) -> tuple[str, str]:
     think if they got it on their own work. That question is the whole
     milestone.
     """
-    # TODO: replace this — thresholds are in config.py
     if score >= config.AI_THRESHOLD:
-        return "ai", "PLACEHOLDER — write the high-confidence AI label."
-    if score <= config.HUMAN_THRESHOLD:
-        return "human", "PLACEHOLDER — write the high-confidence human label."
-    return "unsure", "PLACEHOLDER — write the unsure label."
+        return "ai", LABEL_AI
+    if score < config.HUMAN_THRESHOLD:
+        return "human", LABEL_HUMAN
+    return "unsure", LABEL_UNSURE
+
+
+LABEL_HUMAN = (
+    "We think a person most likely wrote this. Our check found the variety in "
+    "sentences and word choice that we usually see in human writing."
+)
+
+LABEL_UNSURE = (
+    "We can't tell whether this was written by a person or with help from AI, "
+    "so we are not making a call either way. This is not an accusation. Our "
+    "check is easily thrown off by short, plain, or very formal writing. If you "
+    "wrote this, you don't need to do anything."
+)
+
+LABEL_AI = (
+    "Our check found strong signs that this may have been written with AI. "
+    "Automated checks can be wrong, and this one is not proof. If you wrote "
+    "this yourself, you can ask for a review, and it will be marked as under "
+    "review while a person looks at it."
+)
 
 
 def label_ranges() -> list[tuple[str, str]]:
@@ -100,7 +119,7 @@ def label_ranges() -> list[tuple[str, str]]:
     label text — given to you so the numbers can't drift apart from config.py.
     """
     return [
-        ("high-confidence human", f"0.00 – {config.HUMAN_THRESHOLD:.2f}"),
-        ("unsure", f"{config.HUMAN_THRESHOLD:.2f} – {config.AI_THRESHOLD:.2f}"),
-        ("high-confidence AI", f"{config.AI_THRESHOLD:.2f} – 1.00"),
+        ("high-confidence human", f"0.00 up to (not including) {config.HUMAN_THRESHOLD:.2f}"),
+        ("unsure", f"{config.HUMAN_THRESHOLD:.2f} up to (not including) {config.AI_THRESHOLD:.2f}"),
+        ("high-confidence AI", f"{config.AI_THRESHOLD:.2f} to 1.00"),
     ]
