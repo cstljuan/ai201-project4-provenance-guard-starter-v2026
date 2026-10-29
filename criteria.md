@@ -42,63 +42,75 @@ Two things worth knowing before you pick numbers:
   a **miss**.
 
 ---
-## 1.
+## 1. My own writing is rarely called AI
 
-<!-- Your criterion. It must name a number. -->
+Submit 10 pieces I wrote myself to `POST /submit`, at least 3 of them in plain,
+simple, everyday language. At most 1 of the 10 comes back with `"guess": "ai"`
+(the high-confidence AI label). This must hold in every one of the three trials.
 
-
-
-**Why this target:**
-
-
-
----
-
-## 2.
-
-<!-- Your criterion. -->
-
-
-
-**Why this target:**
-
-
+**Why this target:** On a writing site, wrongly accusing a real person is the
+mistake that drives them away, while missing some AI text only costs the site a
+little. My first signal (GPT-2 perplexity) rewards predictable text, so plain
+writing is exactly what it is most likely to accuse; that is why 3 of the 10
+must be plain, and why I allow 1 miss instead of 0.
 
 ---
 
-## 3.
+## 2. Clearly-AI and clearly-human text score far apart
 
-<!-- Your criterion. -->
+Submit 5 clearly AI-generated texts (pasted unedited from a chatbot) and 5
+clearly human texts (informal personal writing). The average `confidence` of the
+5 AI texts minus the average `confidence` of the 5 human texts is at least 0.30
+in every trial. (`confidence` runs from 0 = confidently human to 1 = confidently
+AI.)
 
-
-
-**Why this target:**
-
-
-
----
-
-## 4.
-
-<!-- Your criterion. -->
-
-
-
-**Why this target:**
-
-
+**Why this target:** My unsure band is 0.35 to 0.65, which is 0.30 wide. If the
+easy cases are not at least one band apart, the two signals are not separating
+anything, and every threshold decision built on top of them is guesswork.
 
 ---
 
-## 5.
+## 3. All three labels are actually reachable
 
-<!-- Your criterion. -->
+Submit a fixed set of 15 inputs: 5 clearly AI, 5 clearly human, 5 mixed (lightly
+edited AI, or formal human writing). Each of the three guesses (`"human"`,
+`"unsure"`, `"ai"`) appears at least 2 times among the 15 responses, in every
+trial.
 
+**Why this target:** A label that never appears is a label nobody will ever read,
+and a weighted average of two signals tends to pile scores into the middle. If
+"unsure" eats everything, the system looks careful but tells writers nothing;
+requiring 2 of each, not 1, means the reachability isn't a fluke of one input.
 
+---
 
-**Why this target:**
+## 4. Every appeal changes status and is recorded
 
+Submit 5 texts, then send `POST /appeal` with each real `content_id` and a
+reason. All 5 appeals return HTTP 200, `GET /content/<id>` shows the item as
+`under_review`, and `GET /log` shows one `"event": "appeal"` entry per appeal
+with the reasoning text. Also send 3 appeals with made-up `content_id`s: all 3
+return HTTP 404 and add nothing with that id to the log.
 
+**Why this target:** The appeal is the only thing between a wrong accusation and
+nothing at all, so "most of the time" is not good enough: 5 of 5. A fake id that
+silently "succeeds" would tell a writer their appeal was filed when it wasn't.
+
+---
+
+## 5. Bad input is refused cleanly, never crashes
+
+Send these 8 request bodies to `POST /submit`: no `text` field, `text` empty,
+`text` only whitespace, `text` as `null`, `text` as a number, text under 20 words,
+text over 5,000 words, and no `creator_id`. All 8 return HTTP 400 with a JSON
+body containing an `error` field. 0 of the 8 return a 500, and 0 of the 8 return
+a `guess` or `label`.
+
+**Why this target:** Under about 20 words neither signal has enough to measure,
+so any label would be invented; above 5,000 words (longer than most short
+stories) the request is more likely abuse than writing. A label on bad input is
+a decision about a writer made on nothing, and a 500 is a crash an attacker can
+repeat.
 
 ---
 
