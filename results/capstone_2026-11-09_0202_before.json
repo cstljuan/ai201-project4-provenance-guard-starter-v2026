@@ -1,0 +1,5474 @@
+[
+  {
+    "trial": 1,
+    "tag": "before1_020254",
+    "c1": [
+      {
+        "status": 200,
+        "elapsed_s": 0.006,
+        "request_id": "2d17b41c1d6c",
+        "body": {
+          "confidence": 0.69,
+          "content_id": "277fd2a7defe",
+          "creator_id": "c1_before1_020254_0",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "unsure",
+          "label": "We can't tell whether this was written by a person or with help from AI, so we are not making a call either way. This is not an accusation. Our check is easily thrown off by short, plain, or very formal writing. If you wrote this, you don't need to do anything.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 1.0,
+          "status": "decided",
+          "style_score": 0.6992
+        },
+        "record": {
+          "timestamp": "2026-11-09T07:02:54.873+00:00",
+          "request_id": "2d17b41c1d6c",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 2.0,
+          "cpu_ms": 2.0,
+          "input": {
+            "creator_id": "c1_before1_020254_0",
+            "chars": 517,
+            "words": 76,
+            "sha8": "77d54137"
+          },
+          "output": {
+            "guess": "unsure",
+            "confidence": 0.69,
+            "content_id": "277fd2a7defe"
+          },
+          "stages_ms": {
+            "model": 0.1,
+            "style": 0.3,
+            "phrase": 0.5
+          },
+          "degraded": true,
+          "error": "detector_error: InjectedFault: injected fault: detector_error",
+          "fault": "detector_error"
+        },
+        "pass": true
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.002,
+        "request_id": "a2fa54522edf",
+        "body": {
+          "confidence": 0.69,
+          "content_id": "a8f5de4461ca",
+          "creator_id": "c1_before1_020254_1",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "unsure",
+          "label": "We can't tell whether this was written by a person or with help from AI, so we are not making a call either way. This is not an accusation. Our check is easily thrown off by short, plain, or very formal writing. If you wrote this, you don't need to do anything.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 1.0,
+          "status": "decided",
+          "style_score": 0.8
+        },
+        "record": {
+          "timestamp": "2026-11-09T07:02:54.875+00:00",
+          "request_id": "a2fa54522edf",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 1.2,
+          "cpu_ms": 1.2,
+          "input": {
+            "creator_id": "c1_before1_020254_1",
+            "chars": 528,
+            "words": 74,
+            "sha8": "a4f15f5a"
+          },
+          "output": {
+            "guess": "unsure",
+            "confidence": 0.69,
+            "content_id": "a8f5de4461ca"
+          },
+          "stages_ms": {
+            "model": 0.0,
+            "style": 0.1,
+            "phrase": 0.2
+          },
+          "degraded": true,
+          "error": "detector_error: InjectedFault: injected fault: detector_error",
+          "fault": "detector_error"
+        },
+        "pass": true
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.002,
+        "request_id": "bc12bf4dac06",
+        "body": {
+          "confidence": 0.5706,
+          "content_id": "d01e86d0cb3c",
+          "creator_id": "c1_before1_020254_2",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "unsure",
+          "label": "We can't tell whether this was written by a person or with help from AI, so we are not making a call either way. This is not an accusation. Our check is easily thrown off by short, plain, or very formal writing. If you wrote this, you don't need to do anything.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.4444,
+          "status": "decided",
+          "style_score": 0.6969
+        },
+        "record": {
+          "timestamp": "2026-11-09T07:02:54.877+00:00",
+          "request_id": "bc12bf4dac06",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 1.2,
+          "cpu_ms": 1.2,
+          "input": {
+            "creator_id": "c1_before1_020254_2",
+            "chars": 538,
+            "words": 74,
+            "sha8": "711b66b0"
+          },
+          "output": {
+            "guess": "unsure",
+            "confidence": 0.5706,
+            "content_id": "d01e86d0cb3c"
+          },
+          "stages_ms": {
+            "model": 0.0,
+            "style": 0.1,
+            "phrase": 0.2
+          },
+          "degraded": true,
+          "error": "detector_error: InjectedFault: injected fault: detector_error",
+          "fault": "detector_error"
+        },
+        "pass": true
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.002,
+        "request_id": "f1956f749be9",
+        "body": {
+          "confidence": 0.5687,
+          "content_id": "758e30619991",
+          "creator_id": "c1_before1_020254_3",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "unsure",
+          "label": "We can't tell whether this was written by a person or with help from AI, so we are not making a call either way. This is not an accusation. Our check is easily thrown off by short, plain, or very formal writing. If you wrote this, you don't need to do anything.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.4219,
+          "status": "decided",
+          "style_score": 0.7156
+        },
+        "record": {
+          "timestamp": "2026-11-09T07:02:54.879+00:00",
+          "request_id": "f1956f749be9",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 1.2,
+          "cpu_ms": 1.2,
+          "input": {
+            "creator_id": "c1_before1_020254_3",
+            "chars": 512,
+            "words": 78,
+            "sha8": "fcaf1846"
+          },
+          "output": {
+            "guess": "unsure",
+            "confidence": 0.5687,
+            "content_id": "758e30619991"
+          },
+          "stages_ms": {
+            "model": 0.0,
+            "style": 0.1,
+            "phrase": 0.1
+          },
+          "degraded": true,
+          "error": "detector_error: InjectedFault: injected fault: detector_error",
+          "fault": "detector_error"
+        },
+        "pass": true
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.002,
+        "request_id": "e892cacc6f89",
+        "body": {
+          "confidence": 0.69,
+          "content_id": "b20f84f9b919",
+          "creator_id": "c1_before1_020254_4",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "unsure",
+          "label": "We can't tell whether this was written by a person or with help from AI, so we are not making a call either way. This is not an accusation. Our check is easily thrown off by short, plain, or very formal writing. If you wrote this, you don't need to do anything.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.8658,
+          "status": "decided",
+          "style_score": 0.8171
+        },
+        "record": {
+          "timestamp": "2026-11-09T07:02:54.881+00:00",
+          "request_id": "e892cacc6f89",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 1.1,
+          "cpu_ms": 1.2,
+          "input": {
+            "creator_id": "c1_before1_020254_4",
+            "chars": 498,
+            "words": 77,
+            "sha8": "949d3231"
+          },
+          "output": {
+            "guess": "unsure",
+            "confidence": 0.69,
+            "content_id": "b20f84f9b919"
+          },
+          "stages_ms": {
+            "model": 0.0,
+            "style": 0.1,
+            "phrase": 0.2
+          },
+          "degraded": true,
+          "error": "detector_error: InjectedFault: injected fault: detector_error",
+          "fault": "detector_error"
+        },
+        "pass": true
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.002,
+        "request_id": "5290bad65019",
+        "body": {
+          "confidence": 0.2178,
+          "content_id": "686670eaff22",
+          "creator_id": "c1_before1_020254_5",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.4357
+        },
+        "record": {
+          "timestamp": "2026-11-09T07:02:54.883+00:00",
+          "request_id": "5290bad65019",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 1.0,
+          "cpu_ms": 1.0,
+          "input": {
+            "creator_id": "c1_before1_020254_5",
+            "chars": 402,
+            "words": 75,
+            "sha8": "70aa42bc"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.2178,
+            "content_id": "686670eaff22"
+          },
+          "stages_ms": {
+            "model": 0.0,
+            "style": 0.1,
+            "phrase": 0.1
+          },
+          "degraded": true,
+          "error": "detector_error: InjectedFault: injected fault: detector_error",
+          "fault": "detector_error"
+        },
+        "pass": true
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.002,
+        "request_id": "9bbbcbc26d41",
+        "body": {
+          "confidence": 0.1442,
+          "content_id": "d460ef2d2238",
+          "creator_id": "c1_before1_020254_6",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.2885
+        },
+        "record": {
+          "timestamp": "2026-11-09T07:02:54.885+00:00",
+          "request_id": "9bbbcbc26d41",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 0.9,
+          "cpu_ms": 0.9,
+          "input": {
+            "creator_id": "c1_before1_020254_6",
+            "chars": 199,
+            "words": 41,
+            "sha8": "ac8e17e6"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.1442,
+            "content_id": "d460ef2d2238"
+          },
+          "stages_ms": {
+            "model": 0.0,
+            "style": 0.0,
+            "phrase": 0.1
+          },
+          "degraded": true,
+          "error": "detector_error: InjectedFault: injected fault: detector_error",
+          "fault": "detector_error"
+        },
+        "pass": true
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.002,
+        "request_id": "27a72d8c4b64",
+        "body": {
+          "confidence": 0.0795,
+          "content_id": "c8df005c197e",
+          "creator_id": "c1_before1_020254_7",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.159
+        },
+        "record": {
+          "timestamp": "2026-11-09T07:02:54.886+00:00",
+          "request_id": "27a72d8c4b64",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 0.9,
+          "cpu_ms": 1.0,
+          "input": {
+            "creator_id": "c1_before1_020254_7",
+            "chars": 137,
+            "words": 26,
+            "sha8": "4261500a"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.0795,
+            "content_id": "c8df005c197e"
+          },
+          "stages_ms": {
+            "model": 0.0,
+            "style": 0.0,
+            "phrase": 0.1
+          },
+          "degraded": true,
+          "error": "detector_error: InjectedFault: injected fault: detector_error",
+          "fault": "detector_error"
+        },
+        "pass": true
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.002,
+        "request_id": "6b726141bad4",
+        "body": {
+          "confidence": 0.304,
+          "content_id": "46d3d7abaaa7",
+          "creator_id": "c1_before1_020254_8",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.6081
+        },
+        "record": {
+          "timestamp": "2026-11-09T07:02:54.888+00:00",
+          "request_id": "6b726141bad4",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 0.9,
+          "cpu_ms": 0.9,
+          "input": {
+            "creator_id": "c1_before1_020254_8",
+            "chars": 318,
+            "words": 65,
+            "sha8": "28fa3859"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.304,
+            "content_id": "46d3d7abaaa7"
+          },
+          "stages_ms": {
+            "model": 0.0,
+            "style": 0.1,
+            "phrase": 0.1
+          },
+          "degraded": true,
+          "error": "detector_error: InjectedFault: injected fault: detector_error",
+          "fault": "detector_error"
+        },
+        "pass": true
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.002,
+        "request_id": "5cd30c122a9f",
+        "body": {
+          "confidence": 0.2502,
+          "content_id": "ae3abd5da125",
+          "creator_id": "c1_before1_020254_9",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.5004
+        },
+        "record": {
+          "timestamp": "2026-11-09T07:02:54.890+00:00",
+          "request_id": "5cd30c122a9f",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 1.0,
+          "cpu_ms": 1.0,
+          "input": {
+            "creator_id": "c1_before1_020254_9",
+            "chars": 485,
+            "words": 87,
+            "sha8": "30881f4d"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.2502,
+            "content_id": "ae3abd5da125"
+          },
+          "stages_ms": {
+            "model": 0.0,
+            "style": 0.1,
+            "phrase": 0.1
+          },
+          "degraded": true,
+          "error": "detector_error: InjectedFault: injected fault: detector_error",
+          "fault": "detector_error"
+        },
+        "pass": true
+      }
+    ],
+    "c2": [
+      {
+        "status": 200,
+        "elapsed_s": 8.018,
+        "request_id": "916da0380677",
+        "body": {
+          "confidence": 0.2178,
+          "content_id": "14c7c6db26a4",
+          "creator_id": "c2_before1_020254_0",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.4357
+        },
+        "pass": true
+      },
+      {
+        "status": 200,
+        "elapsed_s": 8.019,
+        "request_id": "0fe621db19db",
+        "body": {
+          "confidence": 0.1442,
+          "content_id": "0170bddf5109",
+          "creator_id": "c2_before1_020254_1",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.2885
+        },
+        "pass": true
+      },
+      {
+        "status": 200,
+        "elapsed_s": 8.016,
+        "request_id": "d16861ea71e5",
+        "body": {
+          "confidence": 0.0795,
+          "content_id": "c30ed43a6641",
+          "creator_id": "c2_before1_020254_2",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.159
+        },
+        "pass": true
+      },
+      {
+        "status": 200,
+        "elapsed_s": 8.02,
+        "request_id": "91b1c423d8bf",
+        "body": {
+          "confidence": 0.304,
+          "content_id": "d5eefb7052a9",
+          "creator_id": "c2_before1_020254_3",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.6081
+        },
+        "pass": true
+      },
+      {
+        "status": 200,
+        "elapsed_s": 8.02,
+        "request_id": "7145ed61cf52",
+        "body": {
+          "confidence": 0.2502,
+          "content_id": "a151de353b3d",
+          "creator_id": "c2_before1_020254_4",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.5004
+        },
+        "pass": true
+      }
+    ],
+    "c5": [
+      {
+        "status": 200,
+        "elapsed_s": 0.053,
+        "request_id": "6e55cee80482",
+        "body": {
+          "confidence": 0.3179,
+          "content_id": "47fdca806d11",
+          "creator_id": "c5_before1_020254_0",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.468,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.4357
+        },
+        "fast": true,
+        "degraded": false
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.029,
+        "request_id": "91ae3512a94b",
+        "body": {
+          "confidence": 0.1262,
+          "content_id": "a1f1695f7b47",
+          "creator_id": "c5_before1_020254_1",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.0992,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.2885
+        },
+        "fast": true,
+        "degraded": false
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.021,
+        "request_id": "23bdf2cb1774",
+        "body": {
+          "confidence": 0.1429,
+          "content_id": "9e2f883b9772",
+          "creator_id": "c5_before1_020254_2",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.238,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.159
+        },
+        "fast": true,
+        "degraded": false
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.034,
+        "request_id": "232c7bdc371e",
+        "body": {
+          "confidence": 0.2842,
+          "content_id": "1c34e133d472",
+          "creator_id": "c5_before1_020254_3",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.2545,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.6081
+        },
+        "fast": true,
+        "degraded": false
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.045,
+        "request_id": "b31dffbbded9",
+        "body": {
+          "confidence": 0.2498,
+          "content_id": "0ca7edc5e58c",
+          "creator_id": "c5_before1_020254_4",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.2492,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.5004
+        },
+        "fast": true,
+        "degraded": false
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.041,
+        "request_id": "789f3d53e86a",
+        "body": {
+          "confidence": 0.2769,
+          "content_id": "af9d991451b1",
+          "creator_id": "c5_before1_020254_5",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.4537,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.3182
+        },
+        "fast": true,
+        "degraded": false
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.041,
+        "request_id": "166454c773fb",
+        "body": {
+          "confidence": 0.22,
+          "content_id": "78a58d1350f5",
+          "creator_id": "c5_before1_020254_6",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.2837,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.355
+        },
+        "fast": true,
+        "degraded": false
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.051,
+        "request_id": "207fcfde13fa",
+        "body": {
+          "confidence": 0.2603,
+          "content_id": "9b78512d859e",
+          "creator_id": "c5_before1_020254_7",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.4074,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.3246
+        },
+        "fast": true,
+        "degraded": false
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.03,
+        "request_id": "344476c43919",
+        "body": {
+          "confidence": 0.1711,
+          "content_id": "64da3272db6d",
+          "creator_id": "c5_before1_020254_8",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.0914,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.4485
+        },
+        "fast": true,
+        "degraded": false
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.028,
+        "request_id": "82e7678ff8df",
+        "body": {
+          "confidence": 0.2357,
+          "content_id": "6892dd9a52d8",
+          "creator_id": "c5_before1_020254_9",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.4278,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.2154
+        },
+        "fast": true,
+        "degraded": false
+      }
+    ],
+    "c3": {
+      "refused": [
+        {
+          "status": 400,
+          "elapsed_s": 0.001,
+          "request_id": "38fdec464ff9",
+          "body": {
+            "error": "text_too_short",
+            "message": "We need at least 20 words to say anything useful about a piece. This one has 7."
+          }
+        },
+        {
+          "status": 400,
+          "elapsed_s": 0.001,
+          "request_id": "18874018e608",
+          "body": {
+            "error": "text_too_short",
+            "message": "We need at least 20 words to say anything useful about a piece. This one has 7."
+          }
+        },
+        {
+          "status": 400,
+          "elapsed_s": 0.001,
+          "request_id": "3a346d2b1a3f",
+          "body": {
+            "error": "text_too_short",
+            "message": "We need at least 20 words to say anything useful about a piece. This one has 7."
+          }
+        },
+        {
+          "status": 400,
+          "elapsed_s": 0.001,
+          "request_id": "0d088c334bc5",
+          "body": {
+            "error": "text_too_short",
+            "message": "We need at least 20 words to say anything useful about a piece. This one has 7."
+          }
+        },
+        {
+          "status": 400,
+          "elapsed_s": 0.001,
+          "request_id": "674416858017",
+          "body": {
+            "error": "text_too_short",
+            "message": "We need at least 20 words to say anything useful about a piece. This one has 7."
+          }
+        },
+        {
+          "status": 400,
+          "elapsed_s": 0.001,
+          "request_id": "13dafa4cd9de",
+          "body": {
+            "error": "text_too_short",
+            "message": "We need at least 20 words to say anything useful about a piece. This one has 7."
+          }
+        }
+      ],
+      "valid": [
+        {
+          "status": 200,
+          "elapsed_s": 0.036,
+          "request_id": "22cc4dbe1966",
+          "body": {
+            "confidence": 0.3179,
+            "content_id": "436957975d98",
+            "creator_id": "c3_before1_020254",
+            "creator_verified": false,
+            "degraded": false,
+            "guess": "human",
+            "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+            "model_score": 0.468,
+            "note": null,
+            "phrase_score": 0.0,
+            "status": "decided",
+            "style_score": 0.4357
+          }
+        },
+        {
+          "status": 200,
+          "elapsed_s": 0.029,
+          "request_id": "3d87215d4cf7",
+          "body": {
+            "confidence": 0.1262,
+            "content_id": "6b0f80a8a321",
+            "creator_id": "c3_before1_020254",
+            "creator_verified": false,
+            "degraded": false,
+            "guess": "human",
+            "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+            "model_score": 0.0992,
+            "note": null,
+            "phrase_score": 0.0,
+            "status": "decided",
+            "style_score": 0.2885
+          }
+        },
+        {
+          "status": 200,
+          "elapsed_s": 0.021,
+          "request_id": "66ac9b6a9ef3",
+          "body": {
+            "confidence": 0.1429,
+            "content_id": "a9e24e9ee100",
+            "creator_id": "c3_before1_020254",
+            "creator_verified": false,
+            "degraded": false,
+            "guess": "human",
+            "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+            "model_score": 0.238,
+            "note": null,
+            "phrase_score": 0.0,
+            "status": "decided",
+            "style_score": 0.159
+          }
+        },
+        {
+          "status": 200,
+          "elapsed_s": 0.035,
+          "request_id": "8aaad937b038",
+          "body": {
+            "confidence": 0.2842,
+            "content_id": "b98f91fc077f",
+            "creator_id": "c3_before1_020254",
+            "creator_verified": false,
+            "degraded": false,
+            "guess": "human",
+            "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+            "model_score": 0.2545,
+            "note": null,
+            "phrase_score": 0.0,
+            "status": "decided",
+            "style_score": 0.6081
+          }
+        },
+        {
+          "status": 200,
+          "elapsed_s": 0.043,
+          "request_id": "9ad1cd412c59",
+          "body": {
+            "confidence": 0.2498,
+            "content_id": "04f2af2e985d",
+            "creator_id": "c3_before1_020254",
+            "creator_verified": false,
+            "degraded": false,
+            "guess": "human",
+            "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+            "model_score": 0.2492,
+            "note": null,
+            "phrase_score": 0.0,
+            "status": "decided",
+            "style_score": 0.5004
+          }
+        }
+      ]
+    },
+    "c4": [
+      {
+        "kind": "valid same creator",
+        "status": 200,
+        "elapsed_s": 0.037,
+        "request_id": "b42fe37496dc",
+        "body": {
+          "confidence": 0.3179,
+          "content_id": "812331fd14b6",
+          "creator_id": "c4_before1_020254_same",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.468,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.4357
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:03:35.565+00:00",
+          "request_id": "b42fe37496dc",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 35.6,
+          "cpu_ms": 53.3,
+          "input": {
+            "creator_id": "c4_before1_020254_same",
+            "chars": 402,
+            "words": 75,
+            "sha8": "70aa42bc"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.3179,
+            "content_id": "812331fd14b6"
+          },
+          "stages_ms": {
+            "model": 34.2,
+            "style": 0.1,
+            "phrase": 0.1
+          },
+          "degraded": false,
+          "error": null,
+          "fault": null
+        }
+      },
+      {
+        "kind": "valid same creator",
+        "status": 200,
+        "elapsed_s": 0.029,
+        "request_id": "1ef0f72205cf",
+        "body": {
+          "confidence": 0.1262,
+          "content_id": "3ed8a94f9853",
+          "creator_id": "c4_before1_020254_same",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.0992,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.2885
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:03:35.594+00:00",
+          "request_id": "1ef0f72205cf",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 28.3,
+          "cpu_ms": 39.1,
+          "input": {
+            "creator_id": "c4_before1_020254_same",
+            "chars": 199,
+            "words": 41,
+            "sha8": "ac8e17e6"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.1262,
+            "content_id": "3ed8a94f9853"
+          },
+          "stages_ms": {
+            "model": 27.0,
+            "style": 0.1,
+            "phrase": 0.1
+          },
+          "degraded": false,
+          "error": null,
+          "fault": null
+        }
+      },
+      {
+        "kind": "valid same creator",
+        "status": 200,
+        "elapsed_s": 0.021,
+        "request_id": "1b49a319bab5",
+        "body": {
+          "confidence": 0.1429,
+          "content_id": "6ed4d085dca6",
+          "creator_id": "c4_before1_020254_same",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.238,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.159
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:03:35.616+00:00",
+          "request_id": "1b49a319bab5",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 20.3,
+          "cpu_ms": 26.5,
+          "input": {
+            "creator_id": "c4_before1_020254_same",
+            "chars": 137,
+            "words": 26,
+            "sha8": "4261500a"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.1429,
+            "content_id": "6ed4d085dca6"
+          },
+          "stages_ms": {
+            "model": 19.1,
+            "style": 0.1,
+            "phrase": 0.1
+          },
+          "degraded": false,
+          "error": null,
+          "fault": null
+        }
+      },
+      {
+        "kind": "valid same creator",
+        "status": 200,
+        "elapsed_s": 0.034,
+        "request_id": "c2449553deb5",
+        "body": {
+          "confidence": 0.2842,
+          "content_id": "efdd14428b2b",
+          "creator_id": "c4_before1_020254_same",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.2545,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.6081
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:03:35.650+00:00",
+          "request_id": "c2449553deb5",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 33.1,
+          "cpu_ms": 48.7,
+          "input": {
+            "creator_id": "c4_before1_020254_same",
+            "chars": 318,
+            "words": 65,
+            "sha8": "28fa3859"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.2842,
+            "content_id": "efdd14428b2b"
+          },
+          "stages_ms": {
+            "model": 31.8,
+            "style": 0.1,
+            "phrase": 0.1
+          },
+          "degraded": false,
+          "error": null,
+          "fault": null
+        }
+      },
+      {
+        "kind": "valid same creator",
+        "status": 200,
+        "elapsed_s": 0.043,
+        "request_id": "b6f542d48010",
+        "body": {
+          "confidence": 0.2498,
+          "content_id": "fd3c1576257e",
+          "creator_id": "c4_before1_020254_same",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.2492,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.5004
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:03:35.693+00:00",
+          "request_id": "b6f542d48010",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 42.3,
+          "cpu_ms": 67.1,
+          "input": {
+            "creator_id": "c4_before1_020254_same",
+            "chars": 485,
+            "words": 87,
+            "sha8": "30881f4d"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.2498,
+            "content_id": "fd3c1576257e"
+          },
+          "stages_ms": {
+            "model": 40.6,
+            "style": 0.1,
+            "phrase": 0.2
+          },
+          "degraded": false,
+          "error": null,
+          "fault": null
+        }
+      },
+      {
+        "kind": "valid other creator",
+        "status": 200,
+        "elapsed_s": 0.041,
+        "request_id": "1eeac8f0c457",
+        "body": {
+          "confidence": 0.2769,
+          "content_id": "d25d2316b589",
+          "creator_id": "c4_before1_020254_o0",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.4537,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.3182
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:03:35.734+00:00",
+          "request_id": "1eeac8f0c457",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 40.2,
+          "cpu_ms": 62.0,
+          "input": {
+            "creator_id": "c4_before1_020254_o0",
+            "chars": 472,
+            "words": 89,
+            "sha8": "09988606"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.2769,
+            "content_id": "d25d2316b589"
+          },
+          "stages_ms": {
+            "model": 38.8,
+            "style": 0.1,
+            "phrase": 0.1
+          },
+          "degraded": false,
+          "error": null,
+          "fault": null
+        }
+      },
+      {
+        "kind": "valid other creator",
+        "status": 200,
+        "elapsed_s": 0.042,
+        "request_id": "e9ca40150347",
+        "body": {
+          "confidence": 0.22,
+          "content_id": "1dedf47fc202",
+          "creator_id": "c4_before1_020254_o1",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.2837,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.355
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:03:35.776+00:00",
+          "request_id": "e9ca40150347",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 40.8,
+          "cpu_ms": 62.9,
+          "input": {
+            "creator_id": "c4_before1_020254_o1",
+            "chars": 431,
+            "words": 82,
+            "sha8": "6ed4f62f"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.22,
+            "content_id": "1dedf47fc202"
+          },
+          "stages_ms": {
+            "model": 39.3,
+            "style": 0.1,
+            "phrase": 0.1
+          },
+          "degraded": false,
+          "error": null,
+          "fault": null
+        }
+      },
+      {
+        "kind": "valid other creator",
+        "status": 200,
+        "elapsed_s": 0.049,
+        "request_id": "b63dd3427d89",
+        "body": {
+          "confidence": 0.2603,
+          "content_id": "4481e99d4262",
+          "creator_id": "c4_before1_020254_o2",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.4074,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.3246
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:03:35.825+00:00",
+          "request_id": "b63dd3427d89",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 47.8,
+          "cpu_ms": 78.0,
+          "input": {
+            "creator_id": "c4_before1_020254_o2",
+            "chars": 562,
+            "words": 108,
+            "sha8": "95d36f05"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.2603,
+            "content_id": "4481e99d4262"
+          },
+          "stages_ms": {
+            "model": 46.3,
+            "style": 0.1,
+            "phrase": 0.2
+          },
+          "degraded": false,
+          "error": null,
+          "fault": null
+        }
+      },
+      {
+        "kind": "sixth from same creator",
+        "status": 429,
+        "elapsed_s": 0.001,
+        "request_id": "f5ba31a0536f",
+        "body": {
+          "error": "rate_limited",
+          "limit": "5 per 1 minute",
+          "message": "Too many submissions. Try again shortly."
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:03:35.826+00:00",
+          "request_id": "f5ba31a0536f",
+          "method": "POST",
+          "route": "/submit",
+          "status": 429,
+          "duration_ms": 0.2,
+          "cpu_ms": 0.2,
+          "input": {
+            "creator_id": "c4_before1_020254_same",
+            "chars": 259,
+            "words": 44,
+            "sha8": "86bf8e72"
+          },
+          "output": null,
+          "stages_ms": null,
+          "degraded": null,
+          "error": "rate_limited",
+          "fault": null
+        }
+      },
+      {
+        "kind": "detector error",
+        "status": 200,
+        "elapsed_s": 0.002,
+        "request_id": "1ffa0aaaf27b",
+        "body": {
+          "confidence": 0.2178,
+          "content_id": "d0642a8889a1",
+          "creator_id": "c4_before1_020254_e0",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.4357
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:03:35.828+00:00",
+          "request_id": "1ffa0aaaf27b",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 1.1,
+          "cpu_ms": 1.2,
+          "input": {
+            "creator_id": "c4_before1_020254_e0",
+            "chars": 402,
+            "words": 75,
+            "sha8": "70aa42bc"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.2178,
+            "content_id": "d0642a8889a1"
+          },
+          "stages_ms": {
+            "model": 0.0,
+            "style": 0.1,
+            "phrase": 0.1
+          },
+          "degraded": true,
+          "error": "detector_error: InjectedFault: injected fault: detector_error",
+          "fault": "detector_error"
+        }
+      },
+      {
+        "kind": "detector error",
+        "status": 200,
+        "elapsed_s": 0.002,
+        "request_id": "ba1867415175",
+        "body": {
+          "confidence": 0.1442,
+          "content_id": "6d591c6b229b",
+          "creator_id": "c4_before1_020254_e1",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.2885
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:03:35.830+00:00",
+          "request_id": "ba1867415175",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 1.1,
+          "cpu_ms": 1.1,
+          "input": {
+            "creator_id": "c4_before1_020254_e1",
+            "chars": 199,
+            "words": 41,
+            "sha8": "ac8e17e6"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.1442,
+            "content_id": "6d591c6b229b"
+          },
+          "stages_ms": {
+            "model": 0.0,
+            "style": 0.0,
+            "phrase": 0.1
+          },
+          "degraded": true,
+          "error": "detector_error: InjectedFault: injected fault: detector_error",
+          "fault": "detector_error"
+        }
+      },
+      {
+        "kind": "detector error",
+        "status": 200,
+        "elapsed_s": 0.002,
+        "request_id": "eae7b6589588",
+        "body": {
+          "confidence": 0.0795,
+          "content_id": "bb3d39ad702f",
+          "creator_id": "c4_before1_020254_e2",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.159
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:03:35.832+00:00",
+          "request_id": "eae7b6589588",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 1.0,
+          "cpu_ms": 1.0,
+          "input": {
+            "creator_id": "c4_before1_020254_e2",
+            "chars": 137,
+            "words": 26,
+            "sha8": "4261500a"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.0795,
+            "content_id": "bb3d39ad702f"
+          },
+          "stages_ms": {
+            "model": 0.0,
+            "style": 0.0,
+            "phrase": 0.1
+          },
+          "degraded": true,
+          "error": "detector_error: InjectedFault: injected fault: detector_error",
+          "fault": "detector_error"
+        }
+      },
+      {
+        "kind": "detector stall",
+        "status": 200,
+        "elapsed_s": 8.019,
+        "request_id": "6104f11d15a6",
+        "body": {
+          "confidence": 0.304,
+          "content_id": "31c7fa2d08b3",
+          "creator_id": "c4_before1_020254_s0",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.6081
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:03:43.849+00:00",
+          "request_id": "6104f11d15a6",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 8016.7,
+          "cpu_ms": 99.7,
+          "input": {
+            "creator_id": "c4_before1_020254_s0",
+            "chars": 318,
+            "words": 65,
+            "sha8": "28fa3859"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.304,
+            "content_id": "31c7fa2d08b3"
+          },
+          "stages_ms": {
+            "model": 8010.1,
+            "style": 0.6,
+            "phrase": 0.7
+          },
+          "degraded": true,
+          "error": "detector_timeout: over 8.0s",
+          "fault": "detector_slow"
+        }
+      },
+      {
+        "kind": "detector stall",
+        "status": 200,
+        "elapsed_s": 8.015,
+        "request_id": "e6eef373b481",
+        "body": {
+          "confidence": 0.2502,
+          "content_id": "0f37bc59ff14",
+          "creator_id": "c4_before1_020254_s1",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.5004
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:03:51.865+00:00",
+          "request_id": "e6eef373b481",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 8012.0,
+          "cpu_ms": 124.0,
+          "input": {
+            "creator_id": "c4_before1_020254_s1",
+            "chars": 485,
+            "words": 87,
+            "sha8": "30881f4d"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.2502,
+            "content_id": "0f37bc59ff14"
+          },
+          "stages_ms": {
+            "model": 8001.2,
+            "style": 0.7,
+            "phrase": 1.0
+          },
+          "degraded": true,
+          "error": "detector_timeout: over 8.0s",
+          "fault": "detector_slow"
+        }
+      },
+      {
+        "kind": "too short",
+        "status": 400,
+        "elapsed_s": 0.003,
+        "request_id": "26f6d1aab760",
+        "body": {
+          "error": "text_too_short",
+          "message": "We need at least 20 words to say anything useful about a piece. This one has 7."
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:03:51.869+00:00",
+          "request_id": "26f6d1aab760",
+          "method": "POST",
+          "route": "/submit",
+          "status": 400,
+          "duration_ms": 0.6,
+          "cpu_ms": 0.6,
+          "input": {
+            "creator_id": "c4_before1_020254_short",
+            "chars": 31,
+            "words": 7,
+            "sha8": "6d16ae44"
+          },
+          "output": null,
+          "stages_ms": null,
+          "degraded": null,
+          "error": "text_too_short",
+          "fault": null
+        }
+      },
+      {
+        "kind": "no creator_id",
+        "status": 400,
+        "elapsed_s": 0.002,
+        "request_id": "4cd20733025a",
+        "body": {
+          "error": "missing_creator_id",
+          "message": "creator_id is required."
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:03:51.871+00:00",
+          "request_id": "4cd20733025a",
+          "method": "POST",
+          "route": "/submit",
+          "status": 400,
+          "duration_ms": 0.4,
+          "cpu_ms": 0.5,
+          "input": {
+            "creator_id": null,
+            "chars": 402,
+            "words": 75,
+            "sha8": "70aa42bc"
+          },
+          "output": null,
+          "stages_ms": null,
+          "degraded": null,
+          "error": "missing_creator_id",
+          "fault": null
+        }
+      },
+      {
+        "kind": "not JSON",
+        "status": 400,
+        "elapsed_s": 0.002,
+        "request_id": "22908b3b4e17",
+        "body": {
+          "error": "invalid_json",
+          "message": "Send a JSON object with text and creator_id."
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:03:51.873+00:00",
+          "request_id": "22908b3b4e17",
+          "method": "POST",
+          "route": "/submit",
+          "status": 400,
+          "duration_ms": 0.3,
+          "cpu_ms": 0.3,
+          "input": {
+            "json_object": false,
+            "content_length": 16
+          },
+          "output": null,
+          "stages_ms": null,
+          "degraded": null,
+          "error": "invalid_json",
+          "fault": null
+        }
+      },
+      {
+        "kind": "oversized 300 KB",
+        "status": 413,
+        "elapsed_s": 0.002,
+        "request_id": "c210c81e09af",
+        "body": {
+          "error": "request_too_large",
+          "message": "Requests are limited to 256 KB.",
+          "request_id": "c210c81e09af"
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:03:51.875+00:00",
+          "request_id": "c210c81e09af",
+          "method": "POST",
+          "route": "/submit",
+          "status": 413,
+          "duration_ms": 0.4,
+          "cpu_ms": 0.4,
+          "input": {
+            "unreadable": true,
+            "content_length": 300051
+          },
+          "output": null,
+          "stages_ms": null,
+          "degraded": null,
+          "error": "request_too_large",
+          "fault": null
+        }
+      },
+      {
+        "kind": "oversized 300 KB",
+        "status": 413,
+        "elapsed_s": 0.002,
+        "request_id": "b953315c69a9",
+        "body": {
+          "error": "request_too_large",
+          "message": "Requests are limited to 256 KB.",
+          "request_id": "b953315c69a9"
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:03:51.876+00:00",
+          "request_id": "b953315c69a9",
+          "method": "POST",
+          "route": "/submit",
+          "status": 413,
+          "duration_ms": 0.3,
+          "cpu_ms": 0.3,
+          "input": {
+            "unreadable": true,
+            "content_length": 300051
+          },
+          "output": null,
+          "stages_ms": null,
+          "degraded": null,
+          "error": "request_too_large",
+          "fault": null
+        }
+      },
+      {
+        "kind": "unknown route",
+        "status": 404,
+        "elapsed_s": 0.002,
+        "request_id": "6c73d2ffbcdd",
+        "body": {
+          "error": "not_found",
+          "message": "The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.",
+          "request_id": "6c73d2ffbcdd"
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:03:51.879+00:00",
+          "request_id": "6c73d2ffbcdd",
+          "method": "GET",
+          "route": "/does-not-exist",
+          "status": 404,
+          "duration_ms": 0.1,
+          "cpu_ms": 0.1,
+          "input": null,
+          "output": null,
+          "stages_ms": null,
+          "degraded": null,
+          "error": "not_found",
+          "fault": null
+        }
+      }
+    ]
+  },
+  {
+    "trial": 2,
+    "tag": "before2_020352",
+    "c1": [
+      {
+        "status": 200,
+        "elapsed_s": 0.006,
+        "request_id": "3ff03ecaa143",
+        "body": {
+          "confidence": 0.69,
+          "content_id": "6fe89dbcbf21",
+          "creator_id": "c1_before2_020352_0",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "unsure",
+          "label": "We can't tell whether this was written by a person or with help from AI, so we are not making a call either way. This is not an accusation. Our check is easily thrown off by short, plain, or very formal writing. If you wrote this, you don't need to do anything.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 1.0,
+          "status": "decided",
+          "style_score": 0.6992
+        },
+        "record": {
+          "timestamp": "2026-11-09T07:03:52.405+00:00",
+          "request_id": "3ff03ecaa143",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 3.8,
+          "cpu_ms": 3.8,
+          "input": {
+            "creator_id": "c1_before2_020352_0",
+            "chars": 517,
+            "words": 76,
+            "sha8": "77d54137"
+          },
+          "output": {
+            "guess": "unsure",
+            "confidence": 0.69,
+            "content_id": "6fe89dbcbf21"
+          },
+          "stages_ms": {
+            "model": 0.1,
+            "style": 0.2,
+            "phrase": 0.4
+          },
+          "degraded": true,
+          "error": "detector_error: InjectedFault: injected fault: detector_error",
+          "fault": "detector_error"
+        },
+        "pass": true
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.005,
+        "request_id": "f86539feb009",
+        "body": {
+          "confidence": 0.69,
+          "content_id": "0a4f8b994de0",
+          "creator_id": "c1_before2_020352_1",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "unsure",
+          "label": "We can't tell whether this was written by a person or with help from AI, so we are not making a call either way. This is not an accusation. Our check is easily thrown off by short, plain, or very formal writing. If you wrote this, you don't need to do anything.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 1.0,
+          "status": "decided",
+          "style_score": 0.8
+        },
+        "record": {
+          "timestamp": "2026-11-09T07:03:52.411+00:00",
+          "request_id": "f86539feb009",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 2.9,
+          "cpu_ms": 2.9,
+          "input": {
+            "creator_id": "c1_before2_020352_1",
+            "chars": 528,
+            "words": 74,
+            "sha8": "a4f15f5a"
+          },
+          "output": {
+            "guess": "unsure",
+            "confidence": 0.69,
+            "content_id": "0a4f8b994de0"
+          },
+          "stages_ms": {
+            "model": 0.1,
+            "style": 0.2,
+            "phrase": 0.3
+          },
+          "degraded": true,
+          "error": "detector_error: InjectedFault: injected fault: detector_error",
+          "fault": "detector_error"
+        },
+        "pass": true
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.004,
+        "request_id": "99d640d8c248",
+        "body": {
+          "confidence": 0.5706,
+          "content_id": "58faeb24bd7d",
+          "creator_id": "c1_before2_020352_2",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "unsure",
+          "label": "We can't tell whether this was written by a person or with help from AI, so we are not making a call either way. This is not an accusation. Our check is easily thrown off by short, plain, or very formal writing. If you wrote this, you don't need to do anything.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.4444,
+          "status": "decided",
+          "style_score": 0.6969
+        },
+        "record": {
+          "timestamp": "2026-11-09T07:03:52.416+00:00",
+          "request_id": "99d640d8c248",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 2.8,
+          "cpu_ms": 2.8,
+          "input": {
+            "creator_id": "c1_before2_020352_2",
+            "chars": 538,
+            "words": 74,
+            "sha8": "711b66b0"
+          },
+          "output": {
+            "guess": "unsure",
+            "confidence": 0.5706,
+            "content_id": "58faeb24bd7d"
+          },
+          "stages_ms": {
+            "model": 0.1,
+            "style": 0.2,
+            "phrase": 0.4
+          },
+          "degraded": true,
+          "error": "detector_error: InjectedFault: injected fault: detector_error",
+          "fault": "detector_error"
+        },
+        "pass": true
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.004,
+        "request_id": "5932447b955b",
+        "body": {
+          "confidence": 0.5687,
+          "content_id": "686c180cda23",
+          "creator_id": "c1_before2_020352_3",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "unsure",
+          "label": "We can't tell whether this was written by a person or with help from AI, so we are not making a call either way. This is not an accusation. Our check is easily thrown off by short, plain, or very formal writing. If you wrote this, you don't need to do anything.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.4219,
+          "status": "decided",
+          "style_score": 0.7156
+        },
+        "record": {
+          "timestamp": "2026-11-09T07:03:52.420+00:00",
+          "request_id": "5932447b955b",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 2.7,
+          "cpu_ms": 2.7,
+          "input": {
+            "creator_id": "c1_before2_020352_3",
+            "chars": 512,
+            "words": 78,
+            "sha8": "fcaf1846"
+          },
+          "output": {
+            "guess": "unsure",
+            "confidence": 0.5687,
+            "content_id": "686c180cda23"
+          },
+          "stages_ms": {
+            "model": 0.0,
+            "style": 0.2,
+            "phrase": 0.3
+          },
+          "degraded": true,
+          "error": "detector_error: InjectedFault: injected fault: detector_error",
+          "fault": "detector_error"
+        },
+        "pass": true
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.003,
+        "request_id": "7ef87a62af32",
+        "body": {
+          "confidence": 0.69,
+          "content_id": "c8d4dee06257",
+          "creator_id": "c1_before2_020352_4",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "unsure",
+          "label": "We can't tell whether this was written by a person or with help from AI, so we are not making a call either way. This is not an accusation. Our check is easily thrown off by short, plain, or very formal writing. If you wrote this, you don't need to do anything.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.8658,
+          "status": "decided",
+          "style_score": 0.8171
+        },
+        "record": {
+          "timestamp": "2026-11-09T07:03:52.424+00:00",
+          "request_id": "7ef87a62af32",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 2.2,
+          "cpu_ms": 2.2,
+          "input": {
+            "creator_id": "c1_before2_020352_4",
+            "chars": 498,
+            "words": 77,
+            "sha8": "949d3231"
+          },
+          "output": {
+            "guess": "unsure",
+            "confidence": 0.69,
+            "content_id": "c8d4dee06257"
+          },
+          "stages_ms": {
+            "model": 0.0,
+            "style": 0.2,
+            "phrase": 0.3
+          },
+          "degraded": true,
+          "error": "detector_error: InjectedFault: injected fault: detector_error",
+          "fault": "detector_error"
+        },
+        "pass": true
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.003,
+        "request_id": "7886ceb2173c",
+        "body": {
+          "confidence": 0.2178,
+          "content_id": "c9edee9bbc69",
+          "creator_id": "c1_before2_020352_5",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.4357
+        },
+        "record": {
+          "timestamp": "2026-11-09T07:03:52.427+00:00",
+          "request_id": "7886ceb2173c",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 1.9,
+          "cpu_ms": 1.9,
+          "input": {
+            "creator_id": "c1_before2_020352_5",
+            "chars": 402,
+            "words": 75,
+            "sha8": "70aa42bc"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.2178,
+            "content_id": "c9edee9bbc69"
+          },
+          "stages_ms": {
+            "model": 0.0,
+            "style": 0.1,
+            "phrase": 0.2
+          },
+          "degraded": true,
+          "error": "detector_error: InjectedFault: injected fault: detector_error",
+          "fault": "detector_error"
+        },
+        "pass": true
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.003,
+        "request_id": "b0a6e745a705",
+        "body": {
+          "confidence": 0.1442,
+          "content_id": "96b2bd765679",
+          "creator_id": "c1_before2_020352_6",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.2885
+        },
+        "record": {
+          "timestamp": "2026-11-09T07:03:52.431+00:00",
+          "request_id": "b0a6e745a705",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 1.8,
+          "cpu_ms": 1.8,
+          "input": {
+            "creator_id": "c1_before2_020352_6",
+            "chars": 199,
+            "words": 41,
+            "sha8": "ac8e17e6"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.1442,
+            "content_id": "96b2bd765679"
+          },
+          "stages_ms": {
+            "model": 0.0,
+            "style": 0.1,
+            "phrase": 0.1
+          },
+          "degraded": true,
+          "error": "detector_error: InjectedFault: injected fault: detector_error",
+          "fault": "detector_error"
+        },
+        "pass": true
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.002,
+        "request_id": "5a847e7f9756",
+        "body": {
+          "confidence": 0.0795,
+          "content_id": "47d4fed39b3e",
+          "creator_id": "c1_before2_020352_7",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.159
+        },
+        "record": {
+          "timestamp": "2026-11-09T07:03:52.433+00:00",
+          "request_id": "5a847e7f9756",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 1.4,
+          "cpu_ms": 1.4,
+          "input": {
+            "creator_id": "c1_before2_020352_7",
+            "chars": 137,
+            "words": 26,
+            "sha8": "4261500a"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.0795,
+            "content_id": "47d4fed39b3e"
+          },
+          "stages_ms": {
+            "model": 0.0,
+            "style": 0.0,
+            "phrase": 0.1
+          },
+          "degraded": true,
+          "error": "detector_error: InjectedFault: injected fault: detector_error",
+          "fault": "detector_error"
+        },
+        "pass": true
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.003,
+        "request_id": "dfb109423a1e",
+        "body": {
+          "confidence": 0.304,
+          "content_id": "d1c9e51308a1",
+          "creator_id": "c1_before2_020352_8",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.6081
+        },
+        "record": {
+          "timestamp": "2026-11-09T07:03:52.436+00:00",
+          "request_id": "dfb109423a1e",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 1.6,
+          "cpu_ms": 1.7,
+          "input": {
+            "creator_id": "c1_before2_020352_8",
+            "chars": 318,
+            "words": 65,
+            "sha8": "28fa3859"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.304,
+            "content_id": "d1c9e51308a1"
+          },
+          "stages_ms": {
+            "model": 0.0,
+            "style": 0.1,
+            "phrase": 0.2
+          },
+          "degraded": true,
+          "error": "detector_error: InjectedFault: injected fault: detector_error",
+          "fault": "detector_error"
+        },
+        "pass": true
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.003,
+        "request_id": "03c061b430d7",
+        "body": {
+          "confidence": 0.2502,
+          "content_id": "82e2ae7aa050",
+          "creator_id": "c1_before2_020352_9",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.5004
+        },
+        "record": {
+          "timestamp": "2026-11-09T07:03:52.439+00:00",
+          "request_id": "03c061b430d7",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 1.7,
+          "cpu_ms": 1.7,
+          "input": {
+            "creator_id": "c1_before2_020352_9",
+            "chars": 485,
+            "words": 87,
+            "sha8": "30881f4d"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.2502,
+            "content_id": "82e2ae7aa050"
+          },
+          "stages_ms": {
+            "model": 0.0,
+            "style": 0.1,
+            "phrase": 0.2
+          },
+          "degraded": true,
+          "error": "detector_error: InjectedFault: injected fault: detector_error",
+          "fault": "detector_error"
+        },
+        "pass": true
+      }
+    ],
+    "c2": [
+      {
+        "status": 200,
+        "elapsed_s": 8.018,
+        "request_id": "977786ec730f",
+        "body": {
+          "confidence": 0.2178,
+          "content_id": "7e347fa5c846",
+          "creator_id": "c2_before2_020352_0",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.4357
+        },
+        "pass": true
+      },
+      {
+        "status": 200,
+        "elapsed_s": 8.021,
+        "request_id": "1dbed4a26506",
+        "body": {
+          "confidence": 0.1442,
+          "content_id": "e008e8221ed6",
+          "creator_id": "c2_before2_020352_1",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.2885
+        },
+        "pass": true
+      },
+      {
+        "status": 200,
+        "elapsed_s": 8.017,
+        "request_id": "1442e96a2914",
+        "body": {
+          "confidence": 0.0795,
+          "content_id": "7f5c5a5970ff",
+          "creator_id": "c2_before2_020352_2",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.159
+        },
+        "pass": true
+      },
+      {
+        "status": 200,
+        "elapsed_s": 8.017,
+        "request_id": "8a02fdc7b37c",
+        "body": {
+          "confidence": 0.304,
+          "content_id": "b30960e43498",
+          "creator_id": "c2_before2_020352_3",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.6081
+        },
+        "pass": true
+      },
+      {
+        "status": 200,
+        "elapsed_s": 8.016,
+        "request_id": "f07f47115585",
+        "body": {
+          "confidence": 0.2502,
+          "content_id": "b8b999c4b90f",
+          "creator_id": "c2_before2_020352_4",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.5004
+        },
+        "pass": true
+      }
+    ],
+    "c5": [
+      {
+        "status": 200,
+        "elapsed_s": 0.064,
+        "request_id": "634859579011",
+        "body": {
+          "confidence": 0.3179,
+          "content_id": "8b275bb4a621",
+          "creator_id": "c5_before2_020352_0",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.468,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.4357
+        },
+        "fast": true,
+        "degraded": false
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.03,
+        "request_id": "1a32910dc3a8",
+        "body": {
+          "confidence": 0.1262,
+          "content_id": "ffde8f4e59f1",
+          "creator_id": "c5_before2_020352_1",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.0992,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.2885
+        },
+        "fast": true,
+        "degraded": false
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.022,
+        "request_id": "3d661a35266f",
+        "body": {
+          "confidence": 0.1429,
+          "content_id": "6445f7d10253",
+          "creator_id": "c5_before2_020352_2",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.238,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.159
+        },
+        "fast": true,
+        "degraded": false
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.035,
+        "request_id": "b55050d9dde6",
+        "body": {
+          "confidence": 0.2842,
+          "content_id": "bf7c322dc64f",
+          "creator_id": "c5_before2_020352_3",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.2545,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.6081
+        },
+        "fast": true,
+        "degraded": false
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.043,
+        "request_id": "7299c90a41b9",
+        "body": {
+          "confidence": 0.2498,
+          "content_id": "16e152785b99",
+          "creator_id": "c5_before2_020352_4",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.2492,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.5004
+        },
+        "fast": true,
+        "degraded": false
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.041,
+        "request_id": "4f64cc8456be",
+        "body": {
+          "confidence": 0.2769,
+          "content_id": "7b9e183147bf",
+          "creator_id": "c5_before2_020352_5",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.4537,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.3182
+        },
+        "fast": true,
+        "degraded": false
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.041,
+        "request_id": "488405f22e9c",
+        "body": {
+          "confidence": 0.22,
+          "content_id": "8c208e06f44d",
+          "creator_id": "c5_before2_020352_6",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.2837,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.355
+        },
+        "fast": true,
+        "degraded": false
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.051,
+        "request_id": "9e5304a378fb",
+        "body": {
+          "confidence": 0.2603,
+          "content_id": "ab179f4578f5",
+          "creator_id": "c5_before2_020352_7",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.4074,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.3246
+        },
+        "fast": true,
+        "degraded": false
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.03,
+        "request_id": "89389eb66b01",
+        "body": {
+          "confidence": 0.1711,
+          "content_id": "842d3542d98f",
+          "creator_id": "c5_before2_020352_8",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.0914,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.4485
+        },
+        "fast": true,
+        "degraded": false
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.029,
+        "request_id": "0fddce91894f",
+        "body": {
+          "confidence": 0.2357,
+          "content_id": "c9ce0211e008",
+          "creator_id": "c5_before2_020352_9",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.4278,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.2154
+        },
+        "fast": true,
+        "degraded": false
+      }
+    ],
+    "c3": {
+      "refused": [
+        {
+          "status": 400,
+          "elapsed_s": 0.001,
+          "request_id": "565c2835bf5f",
+          "body": {
+            "error": "text_too_short",
+            "message": "We need at least 20 words to say anything useful about a piece. This one has 7."
+          }
+        },
+        {
+          "status": 400,
+          "elapsed_s": 0.001,
+          "request_id": "b99533ce7d25",
+          "body": {
+            "error": "text_too_short",
+            "message": "We need at least 20 words to say anything useful about a piece. This one has 7."
+          }
+        },
+        {
+          "status": 400,
+          "elapsed_s": 0.001,
+          "request_id": "3917ba2f53e4",
+          "body": {
+            "error": "text_too_short",
+            "message": "We need at least 20 words to say anything useful about a piece. This one has 7."
+          }
+        },
+        {
+          "status": 400,
+          "elapsed_s": 0.001,
+          "request_id": "951948f1f70d",
+          "body": {
+            "error": "text_too_short",
+            "message": "We need at least 20 words to say anything useful about a piece. This one has 7."
+          }
+        },
+        {
+          "status": 400,
+          "elapsed_s": 0.001,
+          "request_id": "5edcce1f2157",
+          "body": {
+            "error": "text_too_short",
+            "message": "We need at least 20 words to say anything useful about a piece. This one has 7."
+          }
+        },
+        {
+          "status": 400,
+          "elapsed_s": 0.001,
+          "request_id": "16727d3a7826",
+          "body": {
+            "error": "text_too_short",
+            "message": "We need at least 20 words to say anything useful about a piece. This one has 7."
+          }
+        }
+      ],
+      "valid": [
+        {
+          "status": 200,
+          "elapsed_s": 0.036,
+          "request_id": "489d1344fcb0",
+          "body": {
+            "confidence": 0.3179,
+            "content_id": "31e6800514da",
+            "creator_id": "c3_before2_020352",
+            "creator_verified": false,
+            "degraded": false,
+            "guess": "human",
+            "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+            "model_score": 0.468,
+            "note": null,
+            "phrase_score": 0.0,
+            "status": "decided",
+            "style_score": 0.4357
+          }
+        },
+        {
+          "status": 200,
+          "elapsed_s": 0.029,
+          "request_id": "9189e86aee16",
+          "body": {
+            "confidence": 0.1262,
+            "content_id": "87aa433287f3",
+            "creator_id": "c3_before2_020352",
+            "creator_verified": false,
+            "degraded": false,
+            "guess": "human",
+            "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+            "model_score": 0.0992,
+            "note": null,
+            "phrase_score": 0.0,
+            "status": "decided",
+            "style_score": 0.2885
+          }
+        },
+        {
+          "status": 200,
+          "elapsed_s": 0.022,
+          "request_id": "94fbfaa995f2",
+          "body": {
+            "confidence": 0.1429,
+            "content_id": "955d97dcd819",
+            "creator_id": "c3_before2_020352",
+            "creator_verified": false,
+            "degraded": false,
+            "guess": "human",
+            "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+            "model_score": 0.238,
+            "note": null,
+            "phrase_score": 0.0,
+            "status": "decided",
+            "style_score": 0.159
+          }
+        },
+        {
+          "status": 200,
+          "elapsed_s": 0.035,
+          "request_id": "da0fe0486556",
+          "body": {
+            "confidence": 0.2842,
+            "content_id": "fa5ee73798d5",
+            "creator_id": "c3_before2_020352",
+            "creator_verified": false,
+            "degraded": false,
+            "guess": "human",
+            "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+            "model_score": 0.2545,
+            "note": null,
+            "phrase_score": 0.0,
+            "status": "decided",
+            "style_score": 0.6081
+          }
+        },
+        {
+          "status": 200,
+          "elapsed_s": 0.043,
+          "request_id": "4d20ba202e7b",
+          "body": {
+            "confidence": 0.2498,
+            "content_id": "6809832a2d6f",
+            "creator_id": "c3_before2_020352",
+            "creator_verified": false,
+            "degraded": false,
+            "guess": "human",
+            "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+            "model_score": 0.2492,
+            "note": null,
+            "phrase_score": 0.0,
+            "status": "decided",
+            "style_score": 0.5004
+          }
+        }
+      ]
+    },
+    "c4": [
+      {
+        "kind": "valid same creator",
+        "status": 200,
+        "elapsed_s": 0.036,
+        "request_id": "54a6b092a1a4",
+        "body": {
+          "confidence": 0.3179,
+          "content_id": "d17921eafedd",
+          "creator_id": "c4_before2_020352_same",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.468,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.4357
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:04:33.121+00:00",
+          "request_id": "54a6b092a1a4",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 35.4,
+          "cpu_ms": 53.0,
+          "input": {
+            "creator_id": "c4_before2_020352_same",
+            "chars": 402,
+            "words": 75,
+            "sha8": "70aa42bc"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.3179,
+            "content_id": "d17921eafedd"
+          },
+          "stages_ms": {
+            "model": 33.9,
+            "style": 0.1,
+            "phrase": 0.1
+          },
+          "degraded": false,
+          "error": null,
+          "fault": null
+        }
+      },
+      {
+        "kind": "valid same creator",
+        "status": 200,
+        "elapsed_s": 0.029,
+        "request_id": "27d31edc293e",
+        "body": {
+          "confidence": 0.1262,
+          "content_id": "f7ab1387112a",
+          "creator_id": "c4_before2_020352_same",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.0992,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.2885
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:04:33.150+00:00",
+          "request_id": "27d31edc293e",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 28.3,
+          "cpu_ms": 39.0,
+          "input": {
+            "creator_id": "c4_before2_020352_same",
+            "chars": 199,
+            "words": 41,
+            "sha8": "ac8e17e6"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.1262,
+            "content_id": "f7ab1387112a"
+          },
+          "stages_ms": {
+            "model": 27.0,
+            "style": 0.1,
+            "phrase": 0.1
+          },
+          "degraded": false,
+          "error": null,
+          "fault": null
+        }
+      },
+      {
+        "kind": "valid same creator",
+        "status": 200,
+        "elapsed_s": 0.022,
+        "request_id": "88d779aa93f6",
+        "body": {
+          "confidence": 0.1429,
+          "content_id": "46a70b618a7d",
+          "creator_id": "c4_before2_020352_same",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.238,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.159
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:04:33.172+00:00",
+          "request_id": "88d779aa93f6",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 20.6,
+          "cpu_ms": 27.0,
+          "input": {
+            "creator_id": "c4_before2_020352_same",
+            "chars": 137,
+            "words": 26,
+            "sha8": "4261500a"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.1429,
+            "content_id": "46a70b618a7d"
+          },
+          "stages_ms": {
+            "model": 19.3,
+            "style": 0.0,
+            "phrase": 0.1
+          },
+          "degraded": false,
+          "error": null,
+          "fault": null
+        }
+      },
+      {
+        "kind": "valid same creator",
+        "status": 200,
+        "elapsed_s": 0.035,
+        "request_id": "1817e9307929",
+        "body": {
+          "confidence": 0.2842,
+          "content_id": "4137eafd2369",
+          "creator_id": "c4_before2_020352_same",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.2545,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.6081
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:04:33.207+00:00",
+          "request_id": "1817e9307929",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 34.0,
+          "cpu_ms": 49.6,
+          "input": {
+            "creator_id": "c4_before2_020352_same",
+            "chars": 318,
+            "words": 65,
+            "sha8": "28fa3859"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.2842,
+            "content_id": "4137eafd2369"
+          },
+          "stages_ms": {
+            "model": 32.6,
+            "style": 0.1,
+            "phrase": 0.1
+          },
+          "degraded": false,
+          "error": null,
+          "fault": null
+        }
+      },
+      {
+        "kind": "valid same creator",
+        "status": 200,
+        "elapsed_s": 0.043,
+        "request_id": "05d0842e6381",
+        "body": {
+          "confidence": 0.2498,
+          "content_id": "aab9c34f3a28",
+          "creator_id": "c4_before2_020352_same",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.2492,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.5004
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:04:33.250+00:00",
+          "request_id": "05d0842e6381",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 42.1,
+          "cpu_ms": 67.1,
+          "input": {
+            "creator_id": "c4_before2_020352_same",
+            "chars": 485,
+            "words": 87,
+            "sha8": "30881f4d"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.2498,
+            "content_id": "aab9c34f3a28"
+          },
+          "stages_ms": {
+            "model": 40.6,
+            "style": 0.1,
+            "phrase": 0.2
+          },
+          "degraded": false,
+          "error": null,
+          "fault": null
+        }
+      },
+      {
+        "kind": "valid other creator",
+        "status": 200,
+        "elapsed_s": 0.041,
+        "request_id": "107559e9aa1a",
+        "body": {
+          "confidence": 0.2769,
+          "content_id": "83eb6d8d7396",
+          "creator_id": "c4_before2_020352_o0",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.4537,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.3182
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:04:33.292+00:00",
+          "request_id": "107559e9aa1a",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 40.5,
+          "cpu_ms": 62.8,
+          "input": {
+            "creator_id": "c4_before2_020352_o0",
+            "chars": 472,
+            "words": 89,
+            "sha8": "09988606"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.2769,
+            "content_id": "83eb6d8d7396"
+          },
+          "stages_ms": {
+            "model": 39.0,
+            "style": 0.1,
+            "phrase": 0.2
+          },
+          "degraded": false,
+          "error": null,
+          "fault": null
+        }
+      },
+      {
+        "kind": "valid other creator",
+        "status": 200,
+        "elapsed_s": 0.042,
+        "request_id": "af50b61f8861",
+        "body": {
+          "confidence": 0.22,
+          "content_id": "ee2aae9f6fe7",
+          "creator_id": "c4_before2_020352_o1",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.2837,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.355
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:04:33.333+00:00",
+          "request_id": "af50b61f8861",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 40.5,
+          "cpu_ms": 62.3,
+          "input": {
+            "creator_id": "c4_before2_020352_o1",
+            "chars": 431,
+            "words": 82,
+            "sha8": "6ed4f62f"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.22,
+            "content_id": "ee2aae9f6fe7"
+          },
+          "stages_ms": {
+            "model": 39.0,
+            "style": 0.1,
+            "phrase": 0.1
+          },
+          "degraded": false,
+          "error": null,
+          "fault": null
+        }
+      },
+      {
+        "kind": "valid other creator",
+        "status": 200,
+        "elapsed_s": 0.049,
+        "request_id": "3e465daeeff3",
+        "body": {
+          "confidence": 0.2603,
+          "content_id": "b8b81edf74f6",
+          "creator_id": "c4_before2_020352_o2",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.4074,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.3246
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:04:33.382+00:00",
+          "request_id": "3e465daeeff3",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 48.0,
+          "cpu_ms": 78.6,
+          "input": {
+            "creator_id": "c4_before2_020352_o2",
+            "chars": 562,
+            "words": 108,
+            "sha8": "95d36f05"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.2603,
+            "content_id": "b8b81edf74f6"
+          },
+          "stages_ms": {
+            "model": 46.4,
+            "style": 0.1,
+            "phrase": 0.2
+          },
+          "degraded": false,
+          "error": null,
+          "fault": null
+        }
+      },
+      {
+        "kind": "sixth from same creator",
+        "status": 429,
+        "elapsed_s": 0.001,
+        "request_id": "c496257df524",
+        "body": {
+          "error": "rate_limited",
+          "limit": "5 per 1 minute",
+          "message": "Too many submissions. Try again shortly."
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:04:33.384+00:00",
+          "request_id": "c496257df524",
+          "method": "POST",
+          "route": "/submit",
+          "status": 429,
+          "duration_ms": 0.2,
+          "cpu_ms": 0.2,
+          "input": {
+            "creator_id": "c4_before2_020352_same",
+            "chars": 259,
+            "words": 44,
+            "sha8": "86bf8e72"
+          },
+          "output": null,
+          "stages_ms": null,
+          "degraded": null,
+          "error": "rate_limited",
+          "fault": null
+        }
+      },
+      {
+        "kind": "detector error",
+        "status": 200,
+        "elapsed_s": 0.002,
+        "request_id": "6743f2b2ff49",
+        "body": {
+          "confidence": 0.2178,
+          "content_id": "a62f9871cbb3",
+          "creator_id": "c4_before2_020352_e0",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.4357
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:04:33.385+00:00",
+          "request_id": "6743f2b2ff49",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 1.2,
+          "cpu_ms": 1.2,
+          "input": {
+            "creator_id": "c4_before2_020352_e0",
+            "chars": 402,
+            "words": 75,
+            "sha8": "70aa42bc"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.2178,
+            "content_id": "a62f9871cbb3"
+          },
+          "stages_ms": {
+            "model": 0.0,
+            "style": 0.1,
+            "phrase": 0.1
+          },
+          "degraded": true,
+          "error": "detector_error: InjectedFault: injected fault: detector_error",
+          "fault": "detector_error"
+        }
+      },
+      {
+        "kind": "detector error",
+        "status": 200,
+        "elapsed_s": 0.002,
+        "request_id": "8fd829665a35",
+        "body": {
+          "confidence": 0.1442,
+          "content_id": "8a5c9f61c3c7",
+          "creator_id": "c4_before2_020352_e1",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.2885
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:04:33.387+00:00",
+          "request_id": "8fd829665a35",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 1.2,
+          "cpu_ms": 1.2,
+          "input": {
+            "creator_id": "c4_before2_020352_e1",
+            "chars": 199,
+            "words": 41,
+            "sha8": "ac8e17e6"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.1442,
+            "content_id": "8a5c9f61c3c7"
+          },
+          "stages_ms": {
+            "model": 0.0,
+            "style": 0.0,
+            "phrase": 0.1
+          },
+          "degraded": true,
+          "error": "detector_error: InjectedFault: injected fault: detector_error",
+          "fault": "detector_error"
+        }
+      },
+      {
+        "kind": "detector error",
+        "status": 200,
+        "elapsed_s": 0.002,
+        "request_id": "e5dce97f710f",
+        "body": {
+          "confidence": 0.0795,
+          "content_id": "0f897be8cca9",
+          "creator_id": "c4_before2_020352_e2",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.159
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:04:33.389+00:00",
+          "request_id": "e5dce97f710f",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 1.1,
+          "cpu_ms": 1.1,
+          "input": {
+            "creator_id": "c4_before2_020352_e2",
+            "chars": 137,
+            "words": 26,
+            "sha8": "4261500a"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.0795,
+            "content_id": "0f897be8cca9"
+          },
+          "stages_ms": {
+            "model": 0.0,
+            "style": 0.0,
+            "phrase": 0.1
+          },
+          "degraded": true,
+          "error": "detector_error: InjectedFault: injected fault: detector_error",
+          "fault": "detector_error"
+        }
+      },
+      {
+        "kind": "detector stall",
+        "status": 200,
+        "elapsed_s": 8.018,
+        "request_id": "de1dc7398590",
+        "body": {
+          "confidence": 0.304,
+          "content_id": "5e4a1bc935d5",
+          "creator_id": "c4_before2_020352_s0",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.6081
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:04:41.406+00:00",
+          "request_id": "de1dc7398590",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 8016.4,
+          "cpu_ms": 96.1,
+          "input": {
+            "creator_id": "c4_before2_020352_s0",
+            "chars": 318,
+            "words": 65,
+            "sha8": "28fa3859"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.304,
+            "content_id": "5e4a1bc935d5"
+          },
+          "stages_ms": {
+            "model": 8010.1,
+            "style": 0.5,
+            "phrase": 0.7
+          },
+          "degraded": true,
+          "error": "detector_timeout: over 8.0s",
+          "fault": "detector_slow"
+        }
+      },
+      {
+        "kind": "detector stall",
+        "status": 200,
+        "elapsed_s": 8.019,
+        "request_id": "594310c891c3",
+        "body": {
+          "confidence": 0.2502,
+          "content_id": "5e4a83825676",
+          "creator_id": "c4_before2_020352_s1",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.5004
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:04:49.425+00:00",
+          "request_id": "594310c891c3",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 8015.6,
+          "cpu_ms": 120.7,
+          "input": {
+            "creator_id": "c4_before2_020352_s1",
+            "chars": 485,
+            "words": 87,
+            "sha8": "30881f4d"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.2502,
+            "content_id": "5e4a83825676"
+          },
+          "stages_ms": {
+            "model": 8008.4,
+            "style": 0.7,
+            "phrase": 1.0
+          },
+          "degraded": true,
+          "error": "detector_timeout: over 8.0s",
+          "fault": "detector_slow"
+        }
+      },
+      {
+        "kind": "too short",
+        "status": 400,
+        "elapsed_s": 0.003,
+        "request_id": "bd4a2423c71c",
+        "body": {
+          "error": "text_too_short",
+          "message": "We need at least 20 words to say anything useful about a piece. This one has 7."
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:04:49.429+00:00",
+          "request_id": "bd4a2423c71c",
+          "method": "POST",
+          "route": "/submit",
+          "status": 400,
+          "duration_ms": 0.6,
+          "cpu_ms": 0.6,
+          "input": {
+            "creator_id": "c4_before2_020352_short",
+            "chars": 31,
+            "words": 7,
+            "sha8": "6d16ae44"
+          },
+          "output": null,
+          "stages_ms": null,
+          "degraded": null,
+          "error": "text_too_short",
+          "fault": null
+        }
+      },
+      {
+        "kind": "no creator_id",
+        "status": 400,
+        "elapsed_s": 0.002,
+        "request_id": "cd332eedee76",
+        "body": {
+          "error": "missing_creator_id",
+          "message": "creator_id is required."
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:04:49.431+00:00",
+          "request_id": "cd332eedee76",
+          "method": "POST",
+          "route": "/submit",
+          "status": 400,
+          "duration_ms": 0.4,
+          "cpu_ms": 0.4,
+          "input": {
+            "creator_id": null,
+            "chars": 402,
+            "words": 75,
+            "sha8": "70aa42bc"
+          },
+          "output": null,
+          "stages_ms": null,
+          "degraded": null,
+          "error": "missing_creator_id",
+          "fault": null
+        }
+      },
+      {
+        "kind": "not JSON",
+        "status": 400,
+        "elapsed_s": 0.002,
+        "request_id": "b724d24c8972",
+        "body": {
+          "error": "invalid_json",
+          "message": "Send a JSON object with text and creator_id."
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:04:49.432+00:00",
+          "request_id": "b724d24c8972",
+          "method": "POST",
+          "route": "/submit",
+          "status": 400,
+          "duration_ms": 0.3,
+          "cpu_ms": 0.3,
+          "input": {
+            "json_object": false,
+            "content_length": 16
+          },
+          "output": null,
+          "stages_ms": null,
+          "degraded": null,
+          "error": "invalid_json",
+          "fault": null
+        }
+      },
+      {
+        "kind": "oversized 300 KB",
+        "status": 413,
+        "elapsed_s": 0.002,
+        "request_id": "335f97b2c004",
+        "body": {
+          "error": "request_too_large",
+          "message": "Requests are limited to 256 KB.",
+          "request_id": "335f97b2c004"
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:04:49.434+00:00",
+          "request_id": "335f97b2c004",
+          "method": "POST",
+          "route": "/submit",
+          "status": 413,
+          "duration_ms": 0.3,
+          "cpu_ms": 0.4,
+          "input": {
+            "unreadable": true,
+            "content_length": 300051
+          },
+          "output": null,
+          "stages_ms": null,
+          "degraded": null,
+          "error": "request_too_large",
+          "fault": null
+        }
+      },
+      {
+        "kind": "oversized 300 KB",
+        "status": 413,
+        "elapsed_s": 0.002,
+        "request_id": "00abf99421b4",
+        "body": {
+          "error": "request_too_large",
+          "message": "Requests are limited to 256 KB.",
+          "request_id": "00abf99421b4"
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:04:49.436+00:00",
+          "request_id": "00abf99421b4",
+          "method": "POST",
+          "route": "/submit",
+          "status": 413,
+          "duration_ms": 0.4,
+          "cpu_ms": 0.4,
+          "input": {
+            "unreadable": true,
+            "content_length": 300051
+          },
+          "output": null,
+          "stages_ms": null,
+          "degraded": null,
+          "error": "request_too_large",
+          "fault": null
+        }
+      },
+      {
+        "kind": "unknown route",
+        "status": 404,
+        "elapsed_s": 0.001,
+        "request_id": "d1a917d00052",
+        "body": {
+          "error": "not_found",
+          "message": "The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.",
+          "request_id": "d1a917d00052"
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:04:49.438+00:00",
+          "request_id": "d1a917d00052",
+          "method": "GET",
+          "route": "/does-not-exist",
+          "status": 404,
+          "duration_ms": 0.1,
+          "cpu_ms": 0.1,
+          "input": null,
+          "output": null,
+          "stages_ms": null,
+          "degraded": null,
+          "error": "not_found",
+          "fault": null
+        }
+      }
+    ]
+  },
+  {
+    "trial": 3,
+    "tag": "before3_020449",
+    "c1": [
+      {
+        "status": 200,
+        "elapsed_s": 0.007,
+        "request_id": "fbe8c0dc634e",
+        "body": {
+          "confidence": 0.69,
+          "content_id": "5d5d1736d2bb",
+          "creator_id": "c1_before3_020449_0",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "unsure",
+          "label": "We can't tell whether this was written by a person or with help from AI, so we are not making a call either way. This is not an accusation. Our check is easily thrown off by short, plain, or very formal writing. If you wrote this, you don't need to do anything.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 1.0,
+          "status": "decided",
+          "style_score": 0.6992
+        },
+        "record": {
+          "timestamp": "2026-11-09T07:04:49.969+00:00",
+          "request_id": "fbe8c0dc634e",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 4.2,
+          "cpu_ms": 4.2,
+          "input": {
+            "creator_id": "c1_before3_020449_0",
+            "chars": 517,
+            "words": 76,
+            "sha8": "77d54137"
+          },
+          "output": {
+            "guess": "unsure",
+            "confidence": 0.69,
+            "content_id": "5d5d1736d2bb"
+          },
+          "stages_ms": {
+            "model": 0.1,
+            "style": 0.2,
+            "phrase": 0.4
+          },
+          "degraded": true,
+          "error": "detector_error: InjectedFault: injected fault: detector_error",
+          "fault": "detector_error"
+        },
+        "pass": true
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.006,
+        "request_id": "ab65fef0f98a",
+        "body": {
+          "confidence": 0.69,
+          "content_id": "ad0e94384a6c",
+          "creator_id": "c1_before3_020449_1",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "unsure",
+          "label": "We can't tell whether this was written by a person or with help from AI, so we are not making a call either way. This is not an accusation. Our check is easily thrown off by short, plain, or very formal writing. If you wrote this, you don't need to do anything.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 1.0,
+          "status": "decided",
+          "style_score": 0.8
+        },
+        "record": {
+          "timestamp": "2026-11-09T07:04:49.976+00:00",
+          "request_id": "ab65fef0f98a",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 3.3,
+          "cpu_ms": 3.3,
+          "input": {
+            "creator_id": "c1_before3_020449_1",
+            "chars": 528,
+            "words": 74,
+            "sha8": "a4f15f5a"
+          },
+          "output": {
+            "guess": "unsure",
+            "confidence": 0.69,
+            "content_id": "ad0e94384a6c"
+          },
+          "stages_ms": {
+            "model": 0.1,
+            "style": 0.2,
+            "phrase": 0.3
+          },
+          "degraded": true,
+          "error": "detector_error: InjectedFault: injected fault: detector_error",
+          "fault": "detector_error"
+        },
+        "pass": true
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.004,
+        "request_id": "f83d938e1834",
+        "body": {
+          "confidence": 0.5706,
+          "content_id": "6651547f1b22",
+          "creator_id": "c1_before3_020449_2",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "unsure",
+          "label": "We can't tell whether this was written by a person or with help from AI, so we are not making a call either way. This is not an accusation. Our check is easily thrown off by short, plain, or very formal writing. If you wrote this, you don't need to do anything.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.4444,
+          "status": "decided",
+          "style_score": 0.6969
+        },
+        "record": {
+          "timestamp": "2026-11-09T07:04:49.981+00:00",
+          "request_id": "f83d938e1834",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 2.6,
+          "cpu_ms": 2.7,
+          "input": {
+            "creator_id": "c1_before3_020449_2",
+            "chars": 538,
+            "words": 74,
+            "sha8": "711b66b0"
+          },
+          "output": {
+            "guess": "unsure",
+            "confidence": 0.5706,
+            "content_id": "6651547f1b22"
+          },
+          "stages_ms": {
+            "model": 0.0,
+            "style": 0.2,
+            "phrase": 0.3
+          },
+          "degraded": true,
+          "error": "detector_error: InjectedFault: injected fault: detector_error",
+          "fault": "detector_error"
+        },
+        "pass": true
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.004,
+        "request_id": "2aa774db1878",
+        "body": {
+          "confidence": 0.5687,
+          "content_id": "dc3124435f42",
+          "creator_id": "c1_before3_020449_3",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "unsure",
+          "label": "We can't tell whether this was written by a person or with help from AI, so we are not making a call either way. This is not an accusation. Our check is easily thrown off by short, plain, or very formal writing. If you wrote this, you don't need to do anything.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.4219,
+          "status": "decided",
+          "style_score": 0.7156
+        },
+        "record": {
+          "timestamp": "2026-11-09T07:04:49.986+00:00",
+          "request_id": "2aa774db1878",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 2.5,
+          "cpu_ms": 2.5,
+          "input": {
+            "creator_id": "c1_before3_020449_3",
+            "chars": 512,
+            "words": 78,
+            "sha8": "fcaf1846"
+          },
+          "output": {
+            "guess": "unsure",
+            "confidence": 0.5687,
+            "content_id": "dc3124435f42"
+          },
+          "stages_ms": {
+            "model": 0.1,
+            "style": 0.2,
+            "phrase": 0.3
+          },
+          "degraded": true,
+          "error": "detector_error: InjectedFault: injected fault: detector_error",
+          "fault": "detector_error"
+        },
+        "pass": true
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.003,
+        "request_id": "6cdebc590bbc",
+        "body": {
+          "confidence": 0.69,
+          "content_id": "1a87a834e0e5",
+          "creator_id": "c1_before3_020449_4",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "unsure",
+          "label": "We can't tell whether this was written by a person or with help from AI, so we are not making a call either way. This is not an accusation. Our check is easily thrown off by short, plain, or very formal writing. If you wrote this, you don't need to do anything.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.8658,
+          "status": "decided",
+          "style_score": 0.8171
+        },
+        "record": {
+          "timestamp": "2026-11-09T07:04:49.990+00:00",
+          "request_id": "6cdebc590bbc",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 2.2,
+          "cpu_ms": 2.2,
+          "input": {
+            "creator_id": "c1_before3_020449_4",
+            "chars": 498,
+            "words": 77,
+            "sha8": "949d3231"
+          },
+          "output": {
+            "guess": "unsure",
+            "confidence": 0.69,
+            "content_id": "1a87a834e0e5"
+          },
+          "stages_ms": {
+            "model": 0.0,
+            "style": 0.1,
+            "phrase": 0.2
+          },
+          "degraded": true,
+          "error": "detector_error: InjectedFault: injected fault: detector_error",
+          "fault": "detector_error"
+        },
+        "pass": true
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.003,
+        "request_id": "6e30da871cf8",
+        "body": {
+          "confidence": 0.2178,
+          "content_id": "84074201e3d4",
+          "creator_id": "c1_before3_020449_5",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.4357
+        },
+        "record": {
+          "timestamp": "2026-11-09T07:04:49.993+00:00",
+          "request_id": "6e30da871cf8",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 1.8,
+          "cpu_ms": 1.8,
+          "input": {
+            "creator_id": "c1_before3_020449_5",
+            "chars": 402,
+            "words": 75,
+            "sha8": "70aa42bc"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.2178,
+            "content_id": "84074201e3d4"
+          },
+          "stages_ms": {
+            "model": 0.0,
+            "style": 0.1,
+            "phrase": 0.2
+          },
+          "degraded": true,
+          "error": "detector_error: InjectedFault: injected fault: detector_error",
+          "fault": "detector_error"
+        },
+        "pass": true
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.003,
+        "request_id": "36a57b4a770e",
+        "body": {
+          "confidence": 0.1442,
+          "content_id": "e46d1ec3e81b",
+          "creator_id": "c1_before3_020449_6",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.2885
+        },
+        "record": {
+          "timestamp": "2026-11-09T07:04:49.996+00:00",
+          "request_id": "36a57b4a770e",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 1.7,
+          "cpu_ms": 1.7,
+          "input": {
+            "creator_id": "c1_before3_020449_6",
+            "chars": 199,
+            "words": 41,
+            "sha8": "ac8e17e6"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.1442,
+            "content_id": "e46d1ec3e81b"
+          },
+          "stages_ms": {
+            "model": 0.0,
+            "style": 0.1,
+            "phrase": 0.1
+          },
+          "degraded": true,
+          "error": "detector_error: InjectedFault: injected fault: detector_error",
+          "fault": "detector_error"
+        },
+        "pass": true
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.002,
+        "request_id": "2050745e9649",
+        "body": {
+          "confidence": 0.0795,
+          "content_id": "9276f48ab9f7",
+          "creator_id": "c1_before3_020449_7",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.159
+        },
+        "record": {
+          "timestamp": "2026-11-09T07:04:49.999+00:00",
+          "request_id": "2050745e9649",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 1.5,
+          "cpu_ms": 1.5,
+          "input": {
+            "creator_id": "c1_before3_020449_7",
+            "chars": 137,
+            "words": 26,
+            "sha8": "4261500a"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.0795,
+            "content_id": "9276f48ab9f7"
+          },
+          "stages_ms": {
+            "model": 0.0,
+            "style": 0.0,
+            "phrase": 0.1
+          },
+          "degraded": true,
+          "error": "detector_error: InjectedFault: injected fault: detector_error",
+          "fault": "detector_error"
+        },
+        "pass": true
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.003,
+        "request_id": "00440aba6515",
+        "body": {
+          "confidence": 0.304,
+          "content_id": "6fc65adf2404",
+          "creator_id": "c1_before3_020449_8",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.6081
+        },
+        "record": {
+          "timestamp": "2026-11-09T07:04:50.002+00:00",
+          "request_id": "00440aba6515",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 1.6,
+          "cpu_ms": 1.6,
+          "input": {
+            "creator_id": "c1_before3_020449_8",
+            "chars": 318,
+            "words": 65,
+            "sha8": "28fa3859"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.304,
+            "content_id": "6fc65adf2404"
+          },
+          "stages_ms": {
+            "model": 0.0,
+            "style": 0.1,
+            "phrase": 0.1
+          },
+          "degraded": true,
+          "error": "detector_error: InjectedFault: injected fault: detector_error",
+          "fault": "detector_error"
+        },
+        "pass": true
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.002,
+        "request_id": "d9fbf5106605",
+        "body": {
+          "confidence": 0.2502,
+          "content_id": "1b6d828e4258",
+          "creator_id": "c1_before3_020449_9",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.5004
+        },
+        "record": {
+          "timestamp": "2026-11-09T07:04:50.005+00:00",
+          "request_id": "d9fbf5106605",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 1.6,
+          "cpu_ms": 1.6,
+          "input": {
+            "creator_id": "c1_before3_020449_9",
+            "chars": 485,
+            "words": 87,
+            "sha8": "30881f4d"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.2502,
+            "content_id": "1b6d828e4258"
+          },
+          "stages_ms": {
+            "model": 0.0,
+            "style": 0.1,
+            "phrase": 0.2
+          },
+          "degraded": true,
+          "error": "detector_error: InjectedFault: injected fault: detector_error",
+          "fault": "detector_error"
+        },
+        "pass": true
+      }
+    ],
+    "c2": [
+      {
+        "status": 200,
+        "elapsed_s": 8.021,
+        "request_id": "ebf54955a153",
+        "body": {
+          "confidence": 0.2178,
+          "content_id": "fa6a892f0467",
+          "creator_id": "c2_before3_020449_0",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.4357
+        },
+        "pass": true
+      },
+      {
+        "status": 200,
+        "elapsed_s": 8.014,
+        "request_id": "1b5e06aac48c",
+        "body": {
+          "confidence": 0.1442,
+          "content_id": "8ba8416915db",
+          "creator_id": "c2_before3_020449_1",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.2885
+        },
+        "pass": true
+      },
+      {
+        "status": 200,
+        "elapsed_s": 8.013,
+        "request_id": "8e2c567dbcbb",
+        "body": {
+          "confidence": 0.0795,
+          "content_id": "048a5429cfd5",
+          "creator_id": "c2_before3_020449_2",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.159
+        },
+        "pass": true
+      },
+      {
+        "status": 200,
+        "elapsed_s": 8.013,
+        "request_id": "70a3f5d244e2",
+        "body": {
+          "confidence": 0.304,
+          "content_id": "76dc11fb6620",
+          "creator_id": "c2_before3_020449_3",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.6081
+        },
+        "pass": true
+      },
+      {
+        "status": 200,
+        "elapsed_s": 8.024,
+        "request_id": "32348b11f0ed",
+        "body": {
+          "confidence": 0.2502,
+          "content_id": "4d01cefe4c99",
+          "creator_id": "c2_before3_020449_4",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.5004
+        },
+        "pass": true
+      }
+    ],
+    "c5": [
+      {
+        "status": 200,
+        "elapsed_s": 0.06,
+        "request_id": "3863b719d357",
+        "body": {
+          "confidence": 0.3179,
+          "content_id": "35ba9960f587",
+          "creator_id": "c5_before3_020449_0",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.468,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.4357
+        },
+        "fast": true,
+        "degraded": false
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.03,
+        "request_id": "6cfc24b0c9e6",
+        "body": {
+          "confidence": 0.1262,
+          "content_id": "4eb7c0f81abe",
+          "creator_id": "c5_before3_020449_1",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.0992,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.2885
+        },
+        "fast": true,
+        "degraded": false
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.022,
+        "request_id": "7b5929414c64",
+        "body": {
+          "confidence": 0.1429,
+          "content_id": "a904fda25524",
+          "creator_id": "c5_before3_020449_2",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.238,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.159
+        },
+        "fast": true,
+        "degraded": false
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.035,
+        "request_id": "4d0d73d80ee6",
+        "body": {
+          "confidence": 0.2842,
+          "content_id": "f8f5ff95fa5c",
+          "creator_id": "c5_before3_020449_3",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.2545,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.6081
+        },
+        "fast": true,
+        "degraded": false
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.043,
+        "request_id": "116781f941d6",
+        "body": {
+          "confidence": 0.2498,
+          "content_id": "22bc1b3f9a0d",
+          "creator_id": "c5_before3_020449_4",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.2492,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.5004
+        },
+        "fast": true,
+        "degraded": false
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.041,
+        "request_id": "a92028a2a833",
+        "body": {
+          "confidence": 0.2769,
+          "content_id": "7764356fa91e",
+          "creator_id": "c5_before3_020449_5",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.4537,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.3182
+        },
+        "fast": true,
+        "degraded": false
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.042,
+        "request_id": "a4b40c7397fa",
+        "body": {
+          "confidence": 0.22,
+          "content_id": "0625d3856372",
+          "creator_id": "c5_before3_020449_6",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.2837,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.355
+        },
+        "fast": true,
+        "degraded": false
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.05,
+        "request_id": "2bc51cd242cf",
+        "body": {
+          "confidence": 0.2603,
+          "content_id": "b3fabff4bbcf",
+          "creator_id": "c5_before3_020449_7",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.4074,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.3246
+        },
+        "fast": true,
+        "degraded": false
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.03,
+        "request_id": "efd718eeab12",
+        "body": {
+          "confidence": 0.1711,
+          "content_id": "56d4ed8f1b40",
+          "creator_id": "c5_before3_020449_8",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.0914,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.4485
+        },
+        "fast": true,
+        "degraded": false
+      },
+      {
+        "status": 200,
+        "elapsed_s": 0.028,
+        "request_id": "0d7e01f234c5",
+        "body": {
+          "confidence": 0.2357,
+          "content_id": "3ec7903dcf29",
+          "creator_id": "c5_before3_020449_9",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.4278,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.2154
+        },
+        "fast": true,
+        "degraded": false
+      }
+    ],
+    "c3": {
+      "refused": [
+        {
+          "status": 400,
+          "elapsed_s": 0.001,
+          "request_id": "7ef334ccec9e",
+          "body": {
+            "error": "text_too_short",
+            "message": "We need at least 20 words to say anything useful about a piece. This one has 7."
+          }
+        },
+        {
+          "status": 400,
+          "elapsed_s": 0.001,
+          "request_id": "d8d20b97d69a",
+          "body": {
+            "error": "text_too_short",
+            "message": "We need at least 20 words to say anything useful about a piece. This one has 7."
+          }
+        },
+        {
+          "status": 400,
+          "elapsed_s": 0.001,
+          "request_id": "ab014cdbb3e6",
+          "body": {
+            "error": "text_too_short",
+            "message": "We need at least 20 words to say anything useful about a piece. This one has 7."
+          }
+        },
+        {
+          "status": 400,
+          "elapsed_s": 0.001,
+          "request_id": "b95d4c158d38",
+          "body": {
+            "error": "text_too_short",
+            "message": "We need at least 20 words to say anything useful about a piece. This one has 7."
+          }
+        },
+        {
+          "status": 400,
+          "elapsed_s": 0.001,
+          "request_id": "043209c7b67a",
+          "body": {
+            "error": "text_too_short",
+            "message": "We need at least 20 words to say anything useful about a piece. This one has 7."
+          }
+        },
+        {
+          "status": 400,
+          "elapsed_s": 0.001,
+          "request_id": "49b4ada3323e",
+          "body": {
+            "error": "text_too_short",
+            "message": "We need at least 20 words to say anything useful about a piece. This one has 7."
+          }
+        }
+      ],
+      "valid": [
+        {
+          "status": 200,
+          "elapsed_s": 0.036,
+          "request_id": "f835519bd149",
+          "body": {
+            "confidence": 0.3179,
+            "content_id": "ae03501b6ab6",
+            "creator_id": "c3_before3_020449",
+            "creator_verified": false,
+            "degraded": false,
+            "guess": "human",
+            "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+            "model_score": 0.468,
+            "note": null,
+            "phrase_score": 0.0,
+            "status": "decided",
+            "style_score": 0.4357
+          }
+        },
+        {
+          "status": 200,
+          "elapsed_s": 0.029,
+          "request_id": "44ab939fe61c",
+          "body": {
+            "confidence": 0.1262,
+            "content_id": "c49614fed279",
+            "creator_id": "c3_before3_020449",
+            "creator_verified": false,
+            "degraded": false,
+            "guess": "human",
+            "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+            "model_score": 0.0992,
+            "note": null,
+            "phrase_score": 0.0,
+            "status": "decided",
+            "style_score": 0.2885
+          }
+        },
+        {
+          "status": 200,
+          "elapsed_s": 0.022,
+          "request_id": "fff1de2f53ec",
+          "body": {
+            "confidence": 0.1429,
+            "content_id": "bc84465d6a87",
+            "creator_id": "c3_before3_020449",
+            "creator_verified": false,
+            "degraded": false,
+            "guess": "human",
+            "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+            "model_score": 0.238,
+            "note": null,
+            "phrase_score": 0.0,
+            "status": "decided",
+            "style_score": 0.159
+          }
+        },
+        {
+          "status": 200,
+          "elapsed_s": 0.035,
+          "request_id": "25621deeb290",
+          "body": {
+            "confidence": 0.2842,
+            "content_id": "b0f1f9c8a690",
+            "creator_id": "c3_before3_020449",
+            "creator_verified": false,
+            "degraded": false,
+            "guess": "human",
+            "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+            "model_score": 0.2545,
+            "note": null,
+            "phrase_score": 0.0,
+            "status": "decided",
+            "style_score": 0.6081
+          }
+        },
+        {
+          "status": 200,
+          "elapsed_s": 0.043,
+          "request_id": "5e414f24476d",
+          "body": {
+            "confidence": 0.2498,
+            "content_id": "f66ab9acf207",
+            "creator_id": "c3_before3_020449",
+            "creator_verified": false,
+            "degraded": false,
+            "guess": "human",
+            "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+            "model_score": 0.2492,
+            "note": null,
+            "phrase_score": 0.0,
+            "status": "decided",
+            "style_score": 0.5004
+          }
+        }
+      ]
+    },
+    "c4": [
+      {
+        "kind": "valid same creator",
+        "status": 200,
+        "elapsed_s": 0.036,
+        "request_id": "93d952d7cc76",
+        "body": {
+          "confidence": 0.3179,
+          "content_id": "1c8433020282",
+          "creator_id": "c4_before3_020449_same",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.468,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.4357
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:05:30.677+00:00",
+          "request_id": "93d952d7cc76",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 35.3,
+          "cpu_ms": 52.8,
+          "input": {
+            "creator_id": "c4_before3_020449_same",
+            "chars": 402,
+            "words": 75,
+            "sha8": "70aa42bc"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.3179,
+            "content_id": "1c8433020282"
+          },
+          "stages_ms": {
+            "model": 33.8,
+            "style": 0.1,
+            "phrase": 0.1
+          },
+          "degraded": false,
+          "error": null,
+          "fault": null
+        }
+      },
+      {
+        "kind": "valid same creator",
+        "status": 200,
+        "elapsed_s": 0.029,
+        "request_id": "0e560ab39b85",
+        "body": {
+          "confidence": 0.1262,
+          "content_id": "38d21bfc0348",
+          "creator_id": "c4_before3_020449_same",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.0992,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.2885
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:05:30.707+00:00",
+          "request_id": "0e560ab39b85",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 28.3,
+          "cpu_ms": 38.9,
+          "input": {
+            "creator_id": "c4_before3_020449_same",
+            "chars": 199,
+            "words": 41,
+            "sha8": "ac8e17e6"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.1262,
+            "content_id": "38d21bfc0348"
+          },
+          "stages_ms": {
+            "model": 26.9,
+            "style": 0.1,
+            "phrase": 0.1
+          },
+          "degraded": false,
+          "error": null,
+          "fault": null
+        }
+      },
+      {
+        "kind": "valid same creator",
+        "status": 200,
+        "elapsed_s": 0.022,
+        "request_id": "520b661f01ab",
+        "body": {
+          "confidence": 0.1429,
+          "content_id": "5fc8a500c9d6",
+          "creator_id": "c4_before3_020449_same",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.238,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.159
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:05:30.728+00:00",
+          "request_id": "520b661f01ab",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 20.6,
+          "cpu_ms": 26.9,
+          "input": {
+            "creator_id": "c4_before3_020449_same",
+            "chars": 137,
+            "words": 26,
+            "sha8": "4261500a"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.1429,
+            "content_id": "5fc8a500c9d6"
+          },
+          "stages_ms": {
+            "model": 19.2,
+            "style": 0.1,
+            "phrase": 0.1
+          },
+          "degraded": false,
+          "error": null,
+          "fault": null
+        }
+      },
+      {
+        "kind": "valid same creator",
+        "status": 200,
+        "elapsed_s": 0.035,
+        "request_id": "2ddd0b812c3b",
+        "body": {
+          "confidence": 0.2842,
+          "content_id": "896515d11e4e",
+          "creator_id": "c4_before3_020449_same",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.2545,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.6081
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:05:30.763+00:00",
+          "request_id": "2ddd0b812c3b",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 33.8,
+          "cpu_ms": 49.2,
+          "input": {
+            "creator_id": "c4_before3_020449_same",
+            "chars": 318,
+            "words": 65,
+            "sha8": "28fa3859"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.2842,
+            "content_id": "896515d11e4e"
+          },
+          "stages_ms": {
+            "model": 32.3,
+            "style": 0.1,
+            "phrase": 0.1
+          },
+          "degraded": false,
+          "error": null,
+          "fault": null
+        }
+      },
+      {
+        "kind": "valid same creator",
+        "status": 200,
+        "elapsed_s": 0.044,
+        "request_id": "d1abe8ed94db",
+        "body": {
+          "confidence": 0.2498,
+          "content_id": "e9b8b4f15935",
+          "creator_id": "c4_before3_020449_same",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.2492,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.5004
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:05:30.807+00:00",
+          "request_id": "d1abe8ed94db",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 42.8,
+          "cpu_ms": 66.9,
+          "input": {
+            "creator_id": "c4_before3_020449_same",
+            "chars": 485,
+            "words": 87,
+            "sha8": "30881f4d"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.2498,
+            "content_id": "e9b8b4f15935"
+          },
+          "stages_ms": {
+            "model": 41.2,
+            "style": 0.1,
+            "phrase": 0.2
+          },
+          "degraded": false,
+          "error": null,
+          "fault": null
+        }
+      },
+      {
+        "kind": "valid other creator",
+        "status": 200,
+        "elapsed_s": 0.042,
+        "request_id": "8c322dbe56f8",
+        "body": {
+          "confidence": 0.2769,
+          "content_id": "5b8906b2d4f1",
+          "creator_id": "c4_before3_020449_o0",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.4537,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.3182
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:05:30.849+00:00",
+          "request_id": "8c322dbe56f8",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 40.5,
+          "cpu_ms": 63.1,
+          "input": {
+            "creator_id": "c4_before3_020449_o0",
+            "chars": 472,
+            "words": 89,
+            "sha8": "09988606"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.2769,
+            "content_id": "5b8906b2d4f1"
+          },
+          "stages_ms": {
+            "model": 38.9,
+            "style": 0.1,
+            "phrase": 0.1
+          },
+          "degraded": false,
+          "error": null,
+          "fault": null
+        }
+      },
+      {
+        "kind": "valid other creator",
+        "status": 200,
+        "elapsed_s": 0.042,
+        "request_id": "268f5c447e94",
+        "body": {
+          "confidence": 0.22,
+          "content_id": "1831519e835d",
+          "creator_id": "c4_before3_020449_o1",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.2837,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.355
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:05:30.890+00:00",
+          "request_id": "268f5c447e94",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 40.5,
+          "cpu_ms": 62.4,
+          "input": {
+            "creator_id": "c4_before3_020449_o1",
+            "chars": 431,
+            "words": 82,
+            "sha8": "6ed4f62f"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.22,
+            "content_id": "1831519e835d"
+          },
+          "stages_ms": {
+            "model": 38.9,
+            "style": 0.1,
+            "phrase": 0.1
+          },
+          "degraded": false,
+          "error": null,
+          "fault": null
+        }
+      },
+      {
+        "kind": "valid other creator",
+        "status": 200,
+        "elapsed_s": 0.049,
+        "request_id": "ea94a23d75ae",
+        "body": {
+          "confidence": 0.2603,
+          "content_id": "388fe9584510",
+          "creator_id": "c4_before3_020449_o2",
+          "creator_verified": false,
+          "degraded": false,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": 0.4074,
+          "note": null,
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.3246
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:05:30.939+00:00",
+          "request_id": "ea94a23d75ae",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 48.0,
+          "cpu_ms": 78.1,
+          "input": {
+            "creator_id": "c4_before3_020449_o2",
+            "chars": 562,
+            "words": 108,
+            "sha8": "95d36f05"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.2603,
+            "content_id": "388fe9584510"
+          },
+          "stages_ms": {
+            "model": 46.3,
+            "style": 0.1,
+            "phrase": 0.2
+          },
+          "degraded": false,
+          "error": null,
+          "fault": null
+        }
+      },
+      {
+        "kind": "sixth from same creator",
+        "status": 429,
+        "elapsed_s": 0.001,
+        "request_id": "b42ae23a1ebf",
+        "body": {
+          "error": "rate_limited",
+          "limit": "5 per 1 minute",
+          "message": "Too many submissions. Try again shortly."
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:05:30.941+00:00",
+          "request_id": "b42ae23a1ebf",
+          "method": "POST",
+          "route": "/submit",
+          "status": 429,
+          "duration_ms": 0.2,
+          "cpu_ms": 0.2,
+          "input": {
+            "creator_id": "c4_before3_020449_same",
+            "chars": 259,
+            "words": 44,
+            "sha8": "86bf8e72"
+          },
+          "output": null,
+          "stages_ms": null,
+          "degraded": null,
+          "error": "rate_limited",
+          "fault": null
+        }
+      },
+      {
+        "kind": "detector error",
+        "status": 200,
+        "elapsed_s": 0.002,
+        "request_id": "0dc65895cd2b",
+        "body": {
+          "confidence": 0.2178,
+          "content_id": "e9ed33a34d4b",
+          "creator_id": "c4_before3_020449_e0",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.4357
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:05:30.943+00:00",
+          "request_id": "0dc65895cd2b",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 1.4,
+          "cpu_ms": 1.4,
+          "input": {
+            "creator_id": "c4_before3_020449_e0",
+            "chars": 402,
+            "words": 75,
+            "sha8": "70aa42bc"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.2178,
+            "content_id": "e9ed33a34d4b"
+          },
+          "stages_ms": {
+            "model": 0.0,
+            "style": 0.1,
+            "phrase": 0.1
+          },
+          "degraded": true,
+          "error": "detector_error: InjectedFault: injected fault: detector_error",
+          "fault": "detector_error"
+        }
+      },
+      {
+        "kind": "detector error",
+        "status": 200,
+        "elapsed_s": 0.002,
+        "request_id": "ff5a229082cd",
+        "body": {
+          "confidence": 0.1442,
+          "content_id": "7087a5e83a8e",
+          "creator_id": "c4_before3_020449_e1",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.2885
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:05:30.945+00:00",
+          "request_id": "ff5a229082cd",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 1.2,
+          "cpu_ms": 1.2,
+          "input": {
+            "creator_id": "c4_before3_020449_e1",
+            "chars": 199,
+            "words": 41,
+            "sha8": "ac8e17e6"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.1442,
+            "content_id": "7087a5e83a8e"
+          },
+          "stages_ms": {
+            "model": 0.0,
+            "style": 0.0,
+            "phrase": 0.1
+          },
+          "degraded": true,
+          "error": "detector_error: InjectedFault: injected fault: detector_error",
+          "fault": "detector_error"
+        }
+      },
+      {
+        "kind": "detector error",
+        "status": 200,
+        "elapsed_s": 0.002,
+        "request_id": "9b77954e1f40",
+        "body": {
+          "confidence": 0.0795,
+          "content_id": "930a29087412",
+          "creator_id": "c4_before3_020449_e2",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.159
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:05:30.946+00:00",
+          "request_id": "9b77954e1f40",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 1.2,
+          "cpu_ms": 1.2,
+          "input": {
+            "creator_id": "c4_before3_020449_e2",
+            "chars": 137,
+            "words": 26,
+            "sha8": "4261500a"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.0795,
+            "content_id": "930a29087412"
+          },
+          "stages_ms": {
+            "model": 0.0,
+            "style": 0.0,
+            "phrase": 0.1
+          },
+          "degraded": true,
+          "error": "detector_error: InjectedFault: injected fault: detector_error",
+          "fault": "detector_error"
+        }
+      },
+      {
+        "kind": "detector stall",
+        "status": 200,
+        "elapsed_s": 8.02,
+        "request_id": "ffcdf1919cdd",
+        "body": {
+          "confidence": 0.304,
+          "content_id": "d146404e5bc6",
+          "creator_id": "c4_before3_020449_s0",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.6081
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:05:38.966+00:00",
+          "request_id": "ffcdf1919cdd",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 8018.9,
+          "cpu_ms": 99.1,
+          "input": {
+            "creator_id": "c4_before3_020449_s0",
+            "chars": 318,
+            "words": 65,
+            "sha8": "28fa3859"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.304,
+            "content_id": "d146404e5bc6"
+          },
+          "stages_ms": {
+            "model": 8010.1,
+            "style": 0.5,
+            "phrase": 0.8
+          },
+          "degraded": true,
+          "error": "detector_timeout: over 8.0s",
+          "fault": "detector_slow"
+        }
+      },
+      {
+        "kind": "detector stall",
+        "status": 200,
+        "elapsed_s": 8.021,
+        "request_id": "6741f2675562",
+        "body": {
+          "confidence": 0.2502,
+          "content_id": "ef1e20a18af0",
+          "creator_id": "c4_before3_020449_s1",
+          "creator_verified": false,
+          "degraded": true,
+          "guess": "human",
+          "label": "We think a person most likely wrote this. Our check found the variety in sentences and word choice that we usually see in human writing.",
+          "model_score": null,
+          "note": "One of our three checks was unavailable, so this result uses the other two. On reduced evidence we never say a piece was written with AI.",
+          "phrase_score": 0.0,
+          "status": "decided",
+          "style_score": 0.5004
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:05:46.986+00:00",
+          "request_id": "6741f2675562",
+          "method": "POST",
+          "route": "/submit",
+          "status": 200,
+          "duration_ms": 8018.1,
+          "cpu_ms": 119.8,
+          "input": {
+            "creator_id": "c4_before3_020449_s1",
+            "chars": 485,
+            "words": 87,
+            "sha8": "30881f4d"
+          },
+          "output": {
+            "guess": "human",
+            "confidence": 0.2502,
+            "content_id": "ef1e20a18af0"
+          },
+          "stages_ms": {
+            "model": 8010.1,
+            "style": 0.7,
+            "phrase": 1.0
+          },
+          "degraded": true,
+          "error": "detector_timeout: over 8.0s",
+          "fault": "detector_slow"
+        }
+      },
+      {
+        "kind": "too short",
+        "status": 400,
+        "elapsed_s": 0.003,
+        "request_id": "578d4cf905ba",
+        "body": {
+          "error": "text_too_short",
+          "message": "We need at least 20 words to say anything useful about a piece. This one has 7."
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:05:46.990+00:00",
+          "request_id": "578d4cf905ba",
+          "method": "POST",
+          "route": "/submit",
+          "status": 400,
+          "duration_ms": 0.6,
+          "cpu_ms": 0.7,
+          "input": {
+            "creator_id": "c4_before3_020449_short",
+            "chars": 31,
+            "words": 7,
+            "sha8": "6d16ae44"
+          },
+          "output": null,
+          "stages_ms": null,
+          "degraded": null,
+          "error": "text_too_short",
+          "fault": null
+        }
+      },
+      {
+        "kind": "no creator_id",
+        "status": 400,
+        "elapsed_s": 0.002,
+        "request_id": "a9b75fcf0093",
+        "body": {
+          "error": "missing_creator_id",
+          "message": "creator_id is required."
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:05:46.993+00:00",
+          "request_id": "a9b75fcf0093",
+          "method": "POST",
+          "route": "/submit",
+          "status": 400,
+          "duration_ms": 0.4,
+          "cpu_ms": 0.4,
+          "input": {
+            "creator_id": null,
+            "chars": 402,
+            "words": 75,
+            "sha8": "70aa42bc"
+          },
+          "output": null,
+          "stages_ms": null,
+          "degraded": null,
+          "error": "missing_creator_id",
+          "fault": null
+        }
+      },
+      {
+        "kind": "not JSON",
+        "status": 400,
+        "elapsed_s": 0.002,
+        "request_id": "97824c6a1cda",
+        "body": {
+          "error": "invalid_json",
+          "message": "Send a JSON object with text and creator_id."
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:05:46.994+00:00",
+          "request_id": "97824c6a1cda",
+          "method": "POST",
+          "route": "/submit",
+          "status": 400,
+          "duration_ms": 0.3,
+          "cpu_ms": 0.3,
+          "input": {
+            "json_object": false,
+            "content_length": 16
+          },
+          "output": null,
+          "stages_ms": null,
+          "degraded": null,
+          "error": "invalid_json",
+          "fault": null
+        }
+      },
+      {
+        "kind": "oversized 300 KB",
+        "status": 413,
+        "elapsed_s": 0.002,
+        "request_id": "abe9d217d5d4",
+        "body": {
+          "error": "request_too_large",
+          "message": "Requests are limited to 256 KB.",
+          "request_id": "abe9d217d5d4"
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:05:46.996+00:00",
+          "request_id": "abe9d217d5d4",
+          "method": "POST",
+          "route": "/submit",
+          "status": 413,
+          "duration_ms": 0.3,
+          "cpu_ms": 0.3,
+          "input": {
+            "unreadable": true,
+            "content_length": 300051
+          },
+          "output": null,
+          "stages_ms": null,
+          "degraded": null,
+          "error": "request_too_large",
+          "fault": null
+        }
+      },
+      {
+        "kind": "oversized 300 KB",
+        "status": 413,
+        "elapsed_s": 0.002,
+        "request_id": "4b8ff96b2134",
+        "body": {
+          "error": "request_too_large",
+          "message": "Requests are limited to 256 KB.",
+          "request_id": "4b8ff96b2134"
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:05:46.998+00:00",
+          "request_id": "4b8ff96b2134",
+          "method": "POST",
+          "route": "/submit",
+          "status": 413,
+          "duration_ms": 0.3,
+          "cpu_ms": 0.3,
+          "input": {
+            "unreadable": true,
+            "content_length": 300051
+          },
+          "output": null,
+          "stages_ms": null,
+          "degraded": null,
+          "error": "request_too_large",
+          "fault": null
+        }
+      },
+      {
+        "kind": "unknown route",
+        "status": 404,
+        "elapsed_s": 0.001,
+        "request_id": "d959ff38a096",
+        "body": {
+          "error": "not_found",
+          "message": "The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.",
+          "request_id": "d959ff38a096"
+        },
+        "records": 1,
+        "pass": true,
+        "record": {
+          "timestamp": "2026-11-09T07:05:46.999+00:00",
+          "request_id": "d959ff38a096",
+          "method": "GET",
+          "route": "/does-not-exist",
+          "status": 404,
+          "duration_ms": 0.1,
+          "cpu_ms": 0.1,
+          "input": null,
+          "output": null,
+          "stages_ms": null,
+          "degraded": null,
+          "error": "not_found",
+          "fault": null
+        }
+      }
+    ]
+  }
+]
