@@ -36,6 +36,7 @@ import config
 import detector
 import phrases
 import resilience
+import runlog
 import scoring
 import sanitize
 import stylometry
@@ -43,6 +44,9 @@ import stylometry
 app = Flask(__name__)
 # Unit 9: bodies over this size get a 413 before they're read in full.
 app.config["MAX_CONTENT_LENGTH"] = config.MAX_REQUEST_BYTES
+# Unit 9: one structured record per request, good or bad. See runlog.py.
+app.before_request_funcs.setdefault(None, []).insert(0, runlog.start)  # runs before the limiter
+app.after_request(runlog.finish)
 
 
 # ── Rate limiting — UNIT 8 ────────────────────────────────────────────────────
