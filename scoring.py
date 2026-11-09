@@ -60,6 +60,21 @@ def combine_signals(model_score: float, style_score: float,
     return round(min(max(score, 0.0), 1.0), 4)
 
 
+def combine_without_model(style_score: float, phrase_score: float) -> float:
+    """
+    The combining rule when signal one is unavailable (unit 9, degraded mode).
+
+    Style and phrases keep their relative weights (0.30 / 0.30, rescaled to sum
+    to 1). The result is capped just under the AI line: on two signals out of
+    three, the service may say "human" or "unsure" but never accuses anyone.
+    """
+    total = config.WEIGHT_STYLE_SIGNAL + config.WEIGHT_PHRASE_SIGNAL
+    score = (config.WEIGHT_STYLE_SIGNAL * style_score
+             + config.WEIGHT_PHRASE_SIGNAL * phrase_score) / total
+    score = min(score, config.AI_THRESHOLD - 0.01)
+    return round(min(max(score, 0.0), 1.0), 4)
+
+
 def score_to_label(score: float) -> tuple[str, str]:
     """
     Turn a score into a guess and the text a reader actually sees.

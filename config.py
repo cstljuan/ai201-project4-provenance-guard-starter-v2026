@@ -121,3 +121,22 @@ RATE_LIMIT_STORAGE = "memory://"
 LOG_DIR = ROOT / "logs"
 AUDIT_LOG = LOG_DIR / "audit.jsonl"
 RESULTS_DIR = ROOT / "results"
+
+
+# ─── Failure handling (UNIT 9 capstone, shape B) ─────────────────────────────
+# How long signal one gets before the service answers without it. A warm call
+# takes well under a second on this laptop; the first call after startup loads
+# the model and can take 10+ seconds, which is why app.py warms it up first.
+DETECTOR_TIMEOUT_SECONDS = 8.0
+
+# Request bodies larger than this get a 413 before they're parsed. 5,000 words
+# (the longest text the service accepts) is about 30 KB of JSON.
+MAX_REQUEST_BYTES = 256 * 1024
+
+# Structured run log: one record per request, good or bad.
+RUN_LOG = "logs/runs.jsonl"
+
+# Testing only. Lets a request ask the detector to fail or stall on purpose
+# (header X-Fault-Inject). Off unless AI201_FAULTS=1 is set.
+FAULT_INJECTION_ENABLED = os.getenv("AI201_FAULTS", "0") == "1"
+FAULT_SLOW_SECONDS = 20.0

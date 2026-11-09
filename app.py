@@ -26,14 +26,16 @@ Routes:
     GET  /health      is the service up, and is the model loaded
 """
 
+import time
 import uuid
 
-from flask import Flask, jsonify, request
+from flask import Flask, g, jsonify, request
 
 import audit
 import config
 import detector
 import phrases
+import resilience
 import scoring
 import sanitize
 import stylometry
@@ -224,13 +226,23 @@ def submit():
     # checker. See sanitize.py for the diagnosis it follows.
     scored_text, instructions_removed = sanitize.strip_instructions(text)
 
-    try:
-        model_score = detector.model_signal(scored_text)
-    except detector.DetectorUnavailable as exc:
-        return jsonify({"error": "detector_unavailable", "message": str(exc)}), 503
+    # Unit 9: signal one runs with a time budget, and a failure degrades the
+    # result instead of failing the request. See resilience.py.
+    fault = resilience.requested_fault(request.headers)
+    model_score, model_error, model_ms = resilience.run_model_signal(scored_text, fault)
+    t = time.perf_counter()
     style_score = stylometry.style_signal(scored_text)
+    style_ms = round((time.perf_counter() - t) * 1000, 1)
+    t = time.perf_counter()
     phrase_score = phrases.phrase_signal(scored_text)
-    confidence = scoring.combine_signals(model_score, style_score, phrase_score)
+    phrase_ms = round((time.perf_counter() - t) * 1000, 1)
+    degraded = model_score is None
+    if degraded:
+        confidence = scoring.combine_without_model(style_score, phrase_score)
+    else:
+        confidence = scoring.combine_signals(model_score, style_score, phrase_score)
+    g.run = {"stages_ms": {"model": model_ms, "style": style_ms, "phrase": phrase_ms},
+             "degraded": degraded, "error": model_error, "fault": fault}
 
     guess, label = scoring.score_to_label(confidence)
     creator_verified = _is_verified(creator_id)
@@ -248,7 +260,10 @@ def submit():
         phrase_score=phrase_score,
         creator_verified=creator_verified,
         instructions_removed=instructions_removed,
+        degraded=degraded,
+        signal_error=model_error,
     )
+    g.run.update({"guess": guess, "confidence": confidence, "content_id": content_id})
     return jsonify({
         "content_id": content_id,
         "creator_id": creator_id,
@@ -259,8 +274,14 @@ def submit():
         "style_score": style_score,
         "phrase_score": phrase_score,
         "creator_verified": creator_verified,
+        "degraded": degraded,
+        "note": DEGRADED_NOTE if degraded else None,
         "status": "decided",
     })
+
+
+DEGRADED_NOTE = ("One of our three checks was unavailable, so this result uses the "
+                 "other two. On reduced evidence we never say a piece was written with AI.")
 
 
 def _validate_submission(payload) -> dict | None:
@@ -534,6 +555,9 @@ def main():
     print('    -H "Content-Type: application/json" \\')
     print("    -d '{\"message\": \"hello\"}'")
     print()
+    # Unit 9: load the model before taking requests, so the detector's time
+    # budget measures scoring, not the one-off model load.
+    print("Warming up the detector model...", "ok" if resilience.warm_up() else "FAILED (requests will run degraded)")
     # debug=True hands out an interactive debugger, so it's local-only — see config.py
     app.run(host=config.HOST, port=config.PORT, debug=config.DEBUG)
 
