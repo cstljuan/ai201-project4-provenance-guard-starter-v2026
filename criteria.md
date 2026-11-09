@@ -144,3 +144,85 @@ repeat.
      A number you missed stays where it is, gets diagnosed, and gets a fix
      attempted. That's where the points are.
      ───────────────────────────────────────────────────────────────────────── -->
+
+---
+
+# Unit 9 capstone criteria
+
+Written for the shape B extension (failure handling) before any capstone test
+was run. Criteria 1 to 4 are about the extension; criterion 5 is about the
+system as it already worked. Every trial uses fresh creator_ids, so one trial
+can't use up another trial's rate limit.
+
+## 1. A broken detector never leads to an accusation
+
+With the service started with `AI201_FAULTS=1` and every request sending
+`X-Fault-Inject: detector_error`, submit 10 valid texts: 5 clearly AI-generated
+(the textbook chatbot paragraphs from `scenarios.py`) and 5 of my own messages.
+All 10 return HTTP 200 with `"degraded": true`, none returns `"guess": "ai"`,
+and each one has a run record in `logs/runs.jsonl` whose `error` starts with
+`detector_error`. Target: 10 of 10, in every trial.
+
+**Why this target:** before unit 9, a detector failure was a 503, so a writer got
+nothing. The fallback answers on two signals out of three, and a score built on
+less evidence must never be the one that accuses someone. Five of the ten are
+the most AI-sounding texts I have, on purpose: they're the ones most likely to
+slip into the AI band if the cap doesn't hold. All ten because this is plain
+code with no model in the loop, so a single miss would be a bug, not noise.
+
+## 2. A stalled detector doesn't stall the writer
+
+With `X-Fault-Inject: detector_slow` (the detector sleeps 20 seconds, past its
+8-second budget), send 5 valid submissions one after another. All 5 return
+HTTP 200 with `"degraded": true` in under 9.0 seconds each, timed at the client
+from sending the request to receiving the full response. Target: 5 of 5 under
+9.0 s, in every trial.
+
+**Why this target:** the budget is 8 seconds, and 1 second on top covers the other
+two signals and the HTTP round trip on this laptop. Past about 10 seconds a
+writer assumes the page broke and resubmits, which doubles the load on a
+service that's already struggling.
+
+## 3. Requests the service refuses don't use up the writer's quota
+
+From one creator_id, within one minute: send 6 requests that get refused with
+400 (text under 20 words), then 5 valid submissions. All 6 refused requests
+return 400 and all 5 valid ones return 200, with no 429. Target: 5 of 5 valid
+submissions accepted, in every trial.
+
+**Why this target:** my limit is 5 per minute. Before the change, the 6 refused
+requests would each have spent quota and every valid submission after them
+would have been turned away. Sending exactly 5 valid ones makes the test sharp:
+if even one refused request is still counted, the fifth valid one gets a 429.
+
+## 4. Every request leaves exactly one run record
+
+Send a mixed batch of 20 requests: 8 valid (5 from one creator, 3 from others),
+1 more from that same creator (which should be rate limited), 3 with the
+detector forced to error, 2 with it forced to stall, 3 refused (too short, no
+creator_id, not JSON), 2 oversized (300 KB bodies) and 1 to a route that doesn't
+exist. For each response, find the record in `logs/runs.jsonl` with the
+`request_id` the response returned in `X-Request-Id`. Target: 20 of 20 have
+exactly one record, with `status` equal to the status code the client saw and a
+`duration_ms` present, in every trial.
+
+**Why this target:** the failures I care about most (a 413, a 429, a crash) are
+exactly the ones that happen before or outside my route, where a log written
+from inside the route would never see them. A request with no record is one I
+can't investigate afterwards. 20 of 20 because every response passes through
+the same after-request hook; a missing record means the hook has a gap.
+
+## 5. The normal path stays fast right after a stall
+
+Immediately after criterion 2's stalled requests (while those stalled detector
+calls are still sleeping in the background), send 10 valid submissions with no
+fault. At least 9 of 10 complete in under 1.0 second at the client, and 0 of
+10 come back `degraded`. Target: at least 9 of 10 under 1.0 s and 0 degraded,
+in every trial.
+
+**Why this target:** a timed-out detector call keeps running in a background
+thread, so a burst of stalls could leave the next normal requests waiting for a
+free worker or timing out themselves. Warm, normal scoring takes well under a
+second on this laptop, so 1.0 s is roomy for one request and tight enough to
+catch requests queuing behind stuck ones. Degraded results on a healthy
+detector would mean the fallback is firing when it shouldn't.
