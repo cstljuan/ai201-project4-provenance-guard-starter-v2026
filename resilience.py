@@ -16,14 +16,23 @@ request can send the header `X-Fault-Inject: detector_error` or
 off (the default), the header is ignored.
 """
 
-import concurrent.futures
+import threading
 import time
 
 import config
 import detector
 
-# A few workers, so one stuck in a slow call never blocks the next request.
-_POOL = concurrent.futures.ThreadPoolExecutor(max_workers=4, thread_name_prefix="detector")
+# Stretch improvement 2 (unit 9): no fixed worker pool. The first capstone run
+# used 4 pooled workers, and a timed-out call kept its worker for the whole
+# stall (Python can't stop a running thread), so after a burst of stalls the
+# healthy requests queued behind them and timed out too (criterion 5 missed).
+# Now every call gets its own daemon thread, so a stuck call holds nothing a
+# healthy call needs. To stop a truly hung detector from piling up threads
+# forever, at most MAX_INFLIGHT calls may be running at once; past that the
+# service answers degraded immediately instead of starting another.
+MAX_INFLIGHT = 16
+_inflight = 0
+_lock = threading.Lock()
 
 
 class InjectedFault(RuntimeError):
@@ -38,18 +47,44 @@ def _work(text: str, fault: str | None) -> float:
     return detector.model_signal(text)
 
 
+def inflight() -> int:
+    with _lock:
+        return _inflight
+
+
 def run_model_signal(text: str, fault: str | None = None):
     """Return (score or None, error string or None, elapsed ms)."""
+    global _inflight
     start = time.perf_counter()
-    future = _POOL.submit(_work, text, fault)
-    try:
-        score = future.result(timeout=config.DETECTOR_TIMEOUT_SECONDS)
-        return score, None, round((time.perf_counter() - start) * 1000, 1)
-    except concurrent.futures.TimeoutError:
-        # The worker keeps running in the background; its result is dropped.
-        return None, f"detector_timeout: over {config.DETECTOR_TIMEOUT_SECONDS}s", round((time.perf_counter() - start) * 1000, 1)
-    except Exception as exc:  # any failure inside the model call
-        return None, f"detector_error: {type(exc).__name__}: {exc}", round((time.perf_counter() - start) * 1000, 1)
+    ms = lambda: round((time.perf_counter() - start) * 1000, 1)  # noqa: E731
+
+    with _lock:
+        if _inflight >= MAX_INFLIGHT:
+            return None, f"detector_saturated: {_inflight} calls still running", ms()
+        _inflight += 1
+
+    box = {}
+    done = threading.Event()
+
+    def target():
+        global _inflight
+        try:
+            box["score"] = _work(text, fault)
+        except Exception as exc:  # any failure inside the model call
+            box["error"] = exc
+        finally:
+            with _lock:
+                _inflight -= 1
+            done.set()
+
+    threading.Thread(target=target, daemon=True, name="detector-call").start()
+    if not done.wait(timeout=config.DETECTOR_TIMEOUT_SECONDS):
+        # The thread keeps running in the background; its result is dropped.
+        return None, f"detector_timeout: over {config.DETECTOR_TIMEOUT_SECONDS}s", ms()
+    if "error" in box:
+        exc = box["error"]
+        return None, f"detector_error: {type(exc).__name__}: {exc}", ms()
+    return box["score"], None, ms()
 
 
 def requested_fault(headers) -> str | None:
