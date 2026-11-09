@@ -35,6 +35,7 @@ import config
 import detector
 import phrases
 import scoring
+import sanitize
 import stylometry
 
 app = Flask(__name__)
@@ -219,12 +220,16 @@ def submit():
     creator_id = payload["creator_id"].strip()
     content_id = uuid.uuid4().hex[:12]
 
+    # Unit 8 improvement: score the writing, not instructions aimed at the
+    # checker. See sanitize.py for the diagnosis it follows.
+    scored_text, instructions_removed = sanitize.strip_instructions(text)
+
     try:
-        model_score = detector.model_signal(text)
+        model_score = detector.model_signal(scored_text)
     except detector.DetectorUnavailable as exc:
         return jsonify({"error": "detector_unavailable", "message": str(exc)}), 503
-    style_score = stylometry.style_signal(text)
-    phrase_score = phrases.phrase_signal(text)
+    style_score = stylometry.style_signal(scored_text)
+    phrase_score = phrases.phrase_signal(scored_text)
     confidence = scoring.combine_signals(model_score, style_score, phrase_score)
 
     guess, label = scoring.score_to_label(confidence)
@@ -242,6 +247,7 @@ def submit():
         label=label,
         phrase_score=phrase_score,
         creator_verified=creator_verified,
+        instructions_removed=instructions_removed,
     )
     return jsonify({
         "content_id": content_id,
