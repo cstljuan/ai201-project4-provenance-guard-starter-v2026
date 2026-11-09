@@ -41,6 +41,8 @@ import sanitize
 import stylometry
 
 app = Flask(__name__)
+# Unit 9: bodies over this size get a 413 before they're read in full.
+app.config["MAX_CONTENT_LENGTH"] = config.MAX_REQUEST_BYTES
 
 
 # ── Rate limiting — UNIT 8 ────────────────────────────────────────────────────
@@ -124,6 +126,39 @@ if config.RATE_LIMITING_ENABLED:
         }), 429
 
 
+# ── Failure responses — UNIT 9 capstone ──────────────────────────────────────
+# Every error leaves as JSON with a request id, and every one is logged.
+
+from werkzeug.exceptions import HTTPException, RequestEntityTooLarge  # noqa: E402
+
+
+@app.errorhandler(RequestEntityTooLarge)
+def too_large(exc):
+    audit.log_rejection(creator_id="unknown", reason="request_too_large",
+                        limit_bytes=config.MAX_REQUEST_BYTES)
+    return jsonify({
+        "error": "request_too_large",
+        "message": f"Requests are limited to {config.MAX_REQUEST_BYTES // 1024} KB.",
+        "request_id": getattr(g, "request_id", None),
+    }), 413
+
+
+@app.errorhandler(Exception)
+def unexpected(exc):
+    # HTTP errors (404, 405, ...) keep their status but still answer in JSON.
+    if isinstance(exc, HTTPException):
+        return jsonify({"error": exc.name.lower().replace(" ", "_"),
+                        "message": exc.description,
+                        "request_id": getattr(g, "request_id", None)}), exc.code
+    g.run = {**getattr(g, "run", {}), "error": f"unhandled: {type(exc).__name__}: {exc}"}
+    audit.log_event("error", creator_id="unknown", status="error",
+                    request_id=getattr(g, "request_id", None),
+                    error=f"{type(exc).__name__}: {exc}")
+    return jsonify({"error": "internal_error",
+                    "message": "Something went wrong on our side. Nothing was decided about your writing.",
+                    "request_id": getattr(g, "request_id", None)}), 500
+
+
 # ── The worked example. Already works. Don't edit. ────────────────────────────
 
 @app.post("/ping")
@@ -160,7 +195,11 @@ def health():
 # ── YOU BUILD THIS ────────────────────────────────────────────────────────────
 
 @app.post("/submit")
-@limiter.limit(f"{config.RATE_LIMIT_PER_MINUTE}/minute;{config.RATE_LIMIT_PER_DAY}/day")
+# Unit 9: a request the route refuses (400) or can't read (413) doesn't spend
+# the caller's quota. In unit 8, refused requests filled the shared bucket and
+# a later request got a 429 instead of its own 400.
+@limiter.limit(f"{config.RATE_LIMIT_PER_MINUTE}/minute;{config.RATE_LIMIT_PER_DAY}/day",
+               deduct_when=lambda response: response.status_code not in (400, 413))
 def submit():
     """
     Take a piece of text, decide about it, log the decision, answer.
