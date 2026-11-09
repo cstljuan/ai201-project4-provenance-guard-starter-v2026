@@ -887,6 +887,14 @@ For testing, `config.FAULT_INJECTION_ENABLED` (off by default) lets a request as
 - I'm not hosting it. The detector loads a 550 MB model, which doesn't fit the course's 512 MB free tier, so this is Path B (local with logs).
 - I'm not adding retries for the detector. A model that failed on one text will usually fail again on the same text, so a retry mostly adds latency; the fallback is the better answer.
 
+## Stretch Features (capstone, declared before building)
+
+Added after the main capstone was submitted, and declared here before any of it was built:
+
+1. **A second measured improvement**, aimed at the criterion 5 miss: stop timed-out detector calls from holding the workers that healthy requests need. Run and logged the same way as the first improvement, all five criteria, three trials.
+2. **A latency breakdown**: where the time goes across the stages of one healthy run (model, style, phrases, everything else), measured from the run log.
+3. **A load observation**: the service at ten times its normal rate, and what changed.
+
 ## Running It
 
 **Path B: local with logs.** The detector loads a 550 MB model and needs about 1.5 GB of memory for the service, so it can't fit the 512 MB free hosting tier. Every command, the environment and the fault-injection switch are in [RUNNING.md](RUNNING.md) under "Capstone run path". The short version:
