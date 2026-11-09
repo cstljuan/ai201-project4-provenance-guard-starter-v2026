@@ -886,3 +886,275 @@ For testing, `config.FAULT_INJECTION_ENABLED` (off by default) lets a request as
 - I'm not changing any signal, weight, threshold or label text. Unit 8 diagnosed the detection weaknesses; this unit is about failure handling, and mixing the two would make neither measurable.
 - I'm not hosting it. The detector loads a 550 MB model, which doesn't fit the course's 512 MB free tier, so this is Path B (local with logs).
 - I'm not adding retries for the detector. A model that failed on one text will usually fail again on the same text, so a retry mostly adds latency; the fallback is the better answer.
+
+## Running It
+
+**Path B: local with logs.** The detector loads a 550 MB model and needs about 1.5 GB of memory for the service, so it can't fit the 512 MB free hosting tier. Every command, the environment and the fault-injection switch are in [RUNNING.md](RUNNING.md) under "Capstone run path". The short version:
+
+```bash
+PORT=5050 .venv/bin/python app.py
+```
+
+I tested RUNNING.md from a fresh clone into an empty folder: new virtual environment, `pip install -r requirements-lock.txt`, `python detector.py`, start, and a real submission came back 200.
+
+## Instrumentation
+
+Every request writes one record to `logs/runs.jsonl` (code: `runlog.py`, hooked in with `before_request` and `after_request` in `app.py`). Writing it after the response is built is what lets 413s, 429s and 404s leave a record too: those never reach my route.
+
+| Field | What it holds |
+|---|---|
+| `timestamp` | when the request finished, UTC |
+| `request_id` | also sent back to the caller in the `X-Request-Id` header |
+| `method`, `route`, `status` | what was asked and what came back |
+| `duration_ms` | wall time inside the service |
+| `cpu_ms` | CPU time the service process used during the request |
+| `input` | character count, word count, an 8-character hash and the creator_id. Never the text itself, so the log can't leak anyone's writing |
+| `output` | guess, confidence and content_id when a decision was made |
+| `stages_ms` | how long signal one (model), signal two (style) and signal three (phrases) took |
+| `degraded` | true when signal one was unavailable and the fallback answered |
+| `error` | what failed: `detector_error: ...`, `detector_timeout: ...`, or the error code the caller got |
+| `fault` | the injected fault, when a test asked for one |
+
+Ten records from the test session, picked to show different paths: a normal decision, a forced detector error, an 8-second stall (before the fix), a normal request that came back degraded after the fix (no fault injected, worker pool busy), a too-short text, broken JSON, a 300 KB body, a rate-limited request, an unknown route and a 4,900-word text.
+
+```json
+{"timestamp": "2026-11-09T07:03:35.037+00:00", "request_id": "6e55cee80482", "method": "POST", "route": "/submit", "status": 200, "duration_ms": 51.2, "cpu_ms": 73.9, "input": {"creator_id": "c5_before1_020254_0", "chars": 402, "words": 75, "sha8": "70aa42bc"}, "output": {"guess": "human", "confidence": 0.3179, "content_id": "47fdca806d11"}, "stages_ms": {"model": 49.5, "style": 0.1, "phrase": 0.2}, "degraded": false, "error": null, "fault": null}
+{"timestamp": "2026-11-09T07:02:54.873+00:00", "request_id": "2d17b41c1d6c", "method": "POST", "route": "/submit", "status": 200, "duration_ms": 2.0, "cpu_ms": 2.0, "input": {"creator_id": "c1_before1_020254_0", "chars": 517, "words": 76, "sha8": "77d54137"}, "output": {"guess": "unsure", "confidence": 0.69, "content_id": "277fd2a7defe"}, "stages_ms": {"model": 0.1, "style": 0.3, "phrase": 0.5}, "degraded": true, "error": "detector_error: InjectedFault: injected fault: detector_error", "fault": "detector_error"}
+{"timestamp": "2026-11-09T07:03:02.906+00:00", "request_id": "916da0380677", "method": "POST", "route": "/submit", "status": 200, "duration_ms": 8016.2, "cpu_ms": 7.4, "input": {"creator_id": "c2_before1_020254_0", "chars": 402, "words": 75, "sha8": "70aa42bc"}, "output": {"guess": "human", "confidence": 0.2178, "content_id": "14c7c6db26a4"}, "stages_ms": {"model": 8010.1, "style": 0.6, "phrase": 0.8}, "degraded": true, "error": "detector_timeout: over 8.0s", "fault": "detector_slow"}
+{"timestamp": "2026-11-09T07:07:18.273+00:00", "request_id": "99b718c924dc", "method": "POST", "route": "/submit", "status": 200, "duration_ms": 2009.3, "cpu_ms": 7.2, "input": {"creator_id": "c5_after1_020706_0", "chars": 402, "words": 75, "sha8": "70aa42bc"}, "output": {"guess": "human", "confidence": 0.2178, "content_id": "ebb25b0d26a4"}, "stages_ms": {"model": 2002.6, "style": 0.6, "phrase": 0.8}, "degraded": true, "error": "detector_timeout: over 2.0s", "fault": null}
+{"timestamp": "2026-11-09T07:03:35.361+00:00", "request_id": "38fdec464ff9", "method": "POST", "route": "/submit", "status": 400, "duration_ms": 0.2, "cpu_ms": 0.2, "input": {"creator_id": "c3_before1_020254", "chars": 31, "words": 7, "sha8": "6d16ae44"}, "output": null, "stages_ms": null, "degraded": null, "error": "text_too_short", "fault": null}
+{"timestamp": "2026-11-09T07:03:51.873+00:00", "request_id": "22908b3b4e17", "method": "POST", "route": "/submit", "status": 400, "duration_ms": 0.3, "cpu_ms": 0.3, "input": {"json_object": false, "content_length": 16}, "output": null, "stages_ms": null, "degraded": null, "error": "invalid_json", "fault": null}
+{"timestamp": "2026-11-09T07:03:51.875+00:00", "request_id": "c210c81e09af", "method": "POST", "route": "/submit", "status": 413, "duration_ms": 0.4, "cpu_ms": 0.4, "input": {"unreadable": true, "content_length": 300051}, "output": null, "stages_ms": null, "degraded": null, "error": "request_too_large", "fault": null}
+{"timestamp": "2026-11-09T07:03:35.826+00:00", "request_id": "f5ba31a0536f", "method": "POST", "route": "/submit", "status": 429, "duration_ms": 0.2, "cpu_ms": 0.2, "input": {"creator_id": "c4_before1_020254_same", "chars": 259, "words": 44, "sha8": "86bf8e72"}, "output": null, "stages_ms": null, "degraded": null, "error": "rate_limited", "fault": null}
+{"timestamp": "2026-11-09T07:03:51.879+00:00", "request_id": "6c73d2ffbcdd", "method": "GET", "route": "/does-not-exist", "status": 404, "duration_ms": 0.1, "cpu_ms": 0.1, "input": null, "output": null, "stages_ms": null, "degraded": null, "error": "not_found", "fault": null}
+{"timestamp": "2026-11-09T07:06:46.507+00:00", "request_id": "1a4109c9e646", "method": "POST", "route": "/submit", "status": 200, "duration_ms": 128.2, "cpu_ms": 279.8, "input": {"creator_id": "longest_probe", "chars": 25392, "words": 4900, "sha8": "2bdfa244"}, "output": {"guess": "unsure", "confidence": 0.6988, "content_id": "8b434ccf2f50"}, "stages_ms": {"model": 115.6, "style": 4.0, "phrase": 5.4}, "degraded": false, "error": null, "fault": null}
+```
+
+## What It Costs
+
+There's no API bill: every signal runs on my laptop. The real cost is compute time, so that's what I measured.
+
+**How:** `python run_capstone.py --cost` sends one warm-up request, then 10 normal submissions one at a time, and averages the `duration_ms` and `cpu_ms` the service logged for those 10 (`results/capstone_cost_2026-11-09_0206.json`).
+
+| Measure | Average of 10 runs |
+|---|---|
+| Wall time inside the service | 35.5 ms |
+| CPU time | 53.2 ms (more than wall time because torch uses several cores at once) |
+| Signal one (model) alone | 33.8 ms |
+
+**A hundred people a day:** 100 x 35.5 ms = 3.55 seconds of wall time, and 100 x 53.2 ms = 5.32 CPU-seconds per day. The scoring itself is close to free. What actually costs something is keeping a machine running all day with about 1.5 GB of memory free for the model, which is why the free 512 MB tier is out. A degraded request is cheaper in CPU but costs the writer time: a stalled detector call cost 8 seconds of waiting before the fix and 2 seconds after it.
+
+## Run Log and Verdicts (capstone)
+
+`python run_capstone.py --label before`, with the service started with `AI201_FAULTS=1`. Counted by `run_capstone.py::summarize` against the targets in `criteria.md`. Raw output: `results/capstone_2026-11-09_0202_before.md` and `.json`.
+
+| Criterion | Target | Run 1 | Run 2 | Run 3 | Verdict |
+|---|---|---|---|---|---|
+| 1. A broken detector never leads to an accusation | 10 of 10 | 10/10 | 10/10 | 10/10 | MET |
+| 2. A stalled detector doesn't stall the writer | 5 of 5 under 9.0 s | 5/5 (max 8.02 s) | 5/5 (max 8.02 s) | 5/5 (max 8.02 s) | MET |
+| 3. Refused requests don't use up the quota | 5 of 5 valid accepted | 5/5, 0 x 429 | 5/5, 0 x 429 | 5/5, 0 x 429 | MET |
+| 4. Every request leaves exactly one run record | 20 of 20 | 20/20 | 20/20 | 20/20 | MET |
+| 5. Normal path stays fast right after a stall | 9+ of 10 under 1.0 s, 0 degraded | 10/10 fast, 0 degraded | 10/10 fast, 0 degraded | 10/10 fast, 0 degraded | MET |
+
+All three trials came out identical apart from small timing differences, which fits: criteria 1 to 4 are plain code paths, and criterion 5's model calls are deterministic.
+
+**Real output from trial 1** (`run_capstone.py`, pulling responses from `app.py::submit` and records from `logs/runs.jsonl`):
+
+Criterion 1 (first of ten, response plus its run record):
+```json
+{
+  "response": {
+    "status": 200,
+    "elapsed_s": 0.006,
+    "request_id": "2d17b41c1d6c",
+    "body": {
+      "guess": "unsure",
+      "confidence": 0.69,
+      "degraded": true
+    }
+  },
+  "run_record": {
+    "request_id": "2d17b41c1d6c",
+    "status": 200,
+    "degraded": true,
+    "error": "detector_error: InjectedFault: injected fault: detector_error",
+    "fault": "detector_error",
+    "stages_ms": {
+      "model": 0.1,
+      "style": 0.3,
+      "phrase": 0.5
+    }
+  }
+}
+```
+Criterion 2 (first two of five):
+```json
+[
+  {
+    "status": 200,
+    "elapsed_s": 8.018,
+    "request_id": "916da0380677",
+    "body": {
+      "guess": "human",
+      "confidence": 0.2178,
+      "degraded": true
+    }
+  },
+  {
+    "status": 200,
+    "elapsed_s": 8.019,
+    "request_id": "0fe621db19db",
+    "body": {
+      "guess": "human",
+      "confidence": 0.1442,
+      "degraded": true
+    }
+  }
+]
+```
+Criterion 3:
+```json
+{
+  "refused_statuses": [
+    400,
+    400,
+    400,
+    400,
+    400,
+    400
+  ],
+  "valid_statuses": [
+    200,
+    200,
+    200,
+    200,
+    200
+  ]
+}
+```
+Criterion 4 (the requests that never reach my route, plus a stall):
+```json
+[
+  {
+    "kind": "sixth from same creator",
+    "status": 429,
+    "records_found": 1,
+    "record_status": 429,
+    "duration_ms": 0.2
+  },
+  {
+    "kind": "detector stall",
+    "status": 200,
+    "records_found": 1,
+    "record_status": 200,
+    "duration_ms": 8016.7
+  },
+  {
+    "kind": "detector stall",
+    "status": 200,
+    "records_found": 1,
+    "record_status": 200,
+    "duration_ms": 8012.0
+  },
+  {
+    "kind": "not JSON",
+    "status": 400,
+    "records_found": 1,
+    "record_status": 400,
+    "duration_ms": 0.3
+  },
+  {
+    "kind": "oversized 300 KB",
+    "status": 413,
+    "records_found": 1,
+    "record_status": 413,
+    "duration_ms": 0.4
+  },
+  {
+    "kind": "oversized 300 KB",
+    "status": 413,
+    "records_found": 1,
+    "record_status": 413,
+    "duration_ms": 0.3
+  }
+]
+```
+Criterion 5:
+```json
+{
+  "elapsed_s": [
+    0.053,
+    0.029,
+    0.021,
+    0.034,
+    0.045,
+    0.041,
+    0.041,
+    0.051,
+    0.03,
+    0.028
+  ],
+  "degraded": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+}
+```
+
+**Verdicts.** Every target held in all three trials, so all five are MET.
+
+**Were the targets too low?** Two of them, yes.
+
+- **Criterion 2** measured my own setting more than the writer's experience. The detector budget was 8 seconds, so a 9-second target could only fail if the fallback itself broke. Every stalled request took 8.01 to 8.02 seconds: the stage is `resilience.run_model_signal`, and the mechanism is that each request waits out the full budget on its own, even when the request just before it already proved the detector was stuck. Five stalls in a row cost writers 40 seconds of waiting between them, and the criterion called that a pass.
+- **Criterion 5** passed partly because of timing. A timed-out detector call keeps running in its worker thread (Python can't kill a thread), and the pool has 4 workers. With stalls 8 seconds apart, by the end of criterion 2 only the last two stalls were still sleeping, so two workers were free for the normal requests. The criterion was right to look there, but its pass depended on that spacing, and the improvement below shows it.
+
+The other three I'd keep as they are. Criterion 1's cap held on the five most AI-sounding texts I have (three landed exactly on the cap, 0.69, so the cap is doing real work), criterion 3 was sharp enough that one counted refusal would have failed it, and criterion 4 covered every kind of request that skips my route.
+
+## The Improvement (capstone)
+
+**What I changed:** one setting. `DETECTOR_TIMEOUT_SECONDS` in `config.py` went from 8.0 to 2.0.
+
+**Why:** the criterion 2 diagnosis. Each stalled request paid the whole budget, and the budget was far bigger than any real call needs: across 80 healthy calls the detector took a median of 34 ms and at most 60 ms, and the longest text the service accepts (about 4,900 words, truncated to the model's token window) took 116 ms. 2 seconds is still 17 times the slowest real call.
+
+`python run_capstone.py --label after`, same service settings, same criteria. Raw output: `results/capstone_2026-11-09_0207_after.md` and `.json`.
+
+| Criterion | Target | Run 1 | Run 2 | Run 3 | Verdict |
+|---|---|---|---|---|---|
+| 1. A broken detector never leads to an accusation | 10 of 10 | 10/10 | 10/10 | 10/10 | MET |
+| 2. A stalled detector doesn't stall the writer | 5 of 5 under 9.0 s | 5/5 (max 2.02 s) | 5/5 (max 2.02 s) | 5/5 (max 2.02 s) | MET |
+| 3. Refused requests don't use up the quota | 5 of 5 valid accepted | 5/5, 0 x 429 | 5/5, 0 x 429 | 5/5, 0 x 429 | MET |
+| 4. Every request leaves exactly one run record | 20 of 20 | 20/20 | 20/20 | 20/20 | MET |
+| 5. Normal path stays fast right after a stall | 9+ of 10 under 1.0 s, 0 degraded | 4/10 fast, 6 degraded | 0/10 fast, 10 degraded | 4/10 fast, 6 degraded | **MISSED** |
+
+**Did it help?** It did what it was aimed at and broke something else, so the honest answer is: half.
+
+- **Better:** every stalled request now answers in 2.01 seconds instead of 8.02 (all 15 stalls across the three trials).
+- **Worse:** criterion 5 is now MISSED. Right after a burst of stalls, normal requests with a healthy detector came back degraded and took 2 seconds: 6, 10 and 6 of 10 across the trials.
+
+**Diagnosis of the criterion 5 miss.** Stage: the detector's worker pool in `resilience.py`. Mechanism: a timed-out call keeps sleeping in its worker for the full 20-second stall, because Python can't stop a running thread. With an 8-second budget the stalls were spaced 8 seconds apart, so workers freed up as fast as new stalls arrived. With a 2-second budget, five stalls start within 10 seconds and hold all 4 workers (the fifth waits in the queue). The next normal requests queue behind them, wait out their own 2-second budget without ever starting, and fall back to degraded. Trial 2 was worst (0 of 10), most likely because the two stalls from trial 1's criterion 4 were still sleeping when trial 2 began. The shorter budget didn't create the problem, it exposed it: the 8-second budget had been hiding the fact that abandoned calls hold workers.
+
+The trade, named: a shorter budget means less waiting for each writer whose request hits a stall, but more healthy requests answered on reduced evidence right after a burst of stalls. That second cost lands on writers too, because a degraded result can't say "human" or "AI" with the full set of signals.
+
+## What's Still Broken (capstone)
+
+- **Criterion 5 (missed after the fix).** The fix I'd make is to stop abandoned calls from holding workers: cancel a queued call when its request times out (`future.cancel()` works for calls that haven't started), and run the model in a separate process instead of a thread, so a stuck call can be killed and the worker restarted. I stopped because that's a second change, and the unit allows one measured improvement. I'd keep the 2-second budget only together with that fix. On its own, I'd go back to 8 seconds, because a slow answer on full evidence beats a fast answer on partial evidence for most writers.
+- **No circuit breaker.** When the detector is truly down, every request still tries it first. After a few failures in a row the service should skip it for a while and answer degraded right away. I didn't add it because it changes how criterion 1 and criterion 5 behave at the same time, and I couldn't measure both changes separately in one unit.
+- **The run log has no rotation.** `logs/runs.jsonl` grows forever. Fine on a laptop, not on a server.
+
+**The one thing I'd do first with another unit:** move the detector into its own process with a kill-and-restart on timeout. Both the criterion 5 miss and the stall cost trace back to a stuck call that can't be stopped, and that's the only change that fixes the cause rather than the symptom.
+
+## How I Used AI (capstone)
+
+**Moment 1: choosing the shape.** I had Claude Code (Anthropic's coding assistant) look at what unit 8 left broken. It pointed at the criterion 5 miss (refused requests filling the rate-limit bucket) and the 503 the service returned when the detector failed, and suggested shape B, failure handling, so both could be fixed and tested together. That's the shape it built. The out-of-scope list (no signal or threshold changes, no hosting, no retries) came from the same conversation, and it's what kept the unit to one extension.
+
+**Moment 2: the improvement.** When every criterion came back MET, Claude measured the healthy detector times (median 34 ms, max 60 ms) and proposed lowering the budget from 8 to 2 seconds. Before running it, it predicted that stalled calls would pile up in the 4-worker pool and that criterion 5 might fail. It did. The change stays in the repo with the miss written up, instead of being reverted for a clean run, because the miss is the most useful thing this unit found.
+
+Claude Code also wrote the five capstone criteria, from the brief and the unit 8 findings, and committed them before any capstone test ran (commit "Add capstone criteria"). The tests and every number above come from real runs on my laptop.
