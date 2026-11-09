@@ -1197,9 +1197,9 @@ The model is nearly all of it. The two text-statistics signals cost a fraction o
 
 | Load | Requests | Statuses | Degraded | Median | 95th percentile | Slowest |
 |---|---|---|---|---|---|---|
-| Normal: 1 per second for 30 s | 30 | {'200': 30} | 0 | 70.6 ms | 82.4 ms | 84.7 ms |
-| Ten times: 10 per second for 30 s | 300 | {'200': 300} | 0 | 42.1 ms | 52.9 ms | 83.9 ms |
-| Stall burst: 24 at once, detector forced to stall | 24 | {'200': 24} | 24 | 2069.6 ms | 2077.7 ms | 2077.7 ms |
+| Normal: 1 per second for 30 s | 30 | 30 x 200 | 0 | 70.6 ms | 82.4 ms | 84.7 ms |
+| Ten times: 10 per second for 30 s | 300 | 300 x 200 | 0 | 42.1 ms | 52.9 ms | 83.9 ms |
+| Stall burst: 24 at once, detector forced to stall | 24 | 24 x 200 | 24 | 2069.6 ms | 2077.7 ms | 2077.7 ms |
 
 **What changed at ten times the rate:** nothing went wrong. All 300 requests came back 200, none degraded, and the 95th percentile stayed under 60 ms. Requests were actually faster than at the normal rate (37.4 ms vs 61.0 ms for the model stage). My best explanation, which I haven't proven: under steady load the laptop's CPU stays at full speed, while one request a second lets it drop to a lower speed between requests. At about 40 ms per request, the service has room for roughly 25 requests a second on one laptop before requests start to wait on each other.
 
