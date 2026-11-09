@@ -861,3 +861,28 @@ My five criteria after the change (`results/run_2026-11-09_0111_after.md`, `resu
 ---
 
 📖 **How to run this project: [RUNNING.md](RUNNING.md)**
+
+---
+
+# Unit 9: The Capstone
+
+## What This Extends
+
+Provenance Guard, the writing-provenance service from units 7 and 8 (this repo). It already takes a submission, scores it with three signals, labels it, and takes appeals. What's new in unit 9 is how it behaves when things go wrong: what happens when the model signal fails or stalls, when a request is malformed or huge, and whether every request, good or bad, leaves a record I can read afterwards.
+
+## The Shape
+
+**B: harden against failure.** The extension is the failure handling:
+
+1. If signal one (the GPT-2 detector) raises an error or takes longer than a time budget, the service still answers. It scores with the two signals that still work, marks the response `degraded`, and never gives the high-confidence AI label on degraded evidence.
+2. Requests my route refuses (400) no longer spend the caller's rate-limit quota. In unit 8, a request without a creator_id got a 429 instead of its 400 because refused requests had already filled the shared bucket.
+3. Request bodies over a size cap get a JSON 413 instead of being read in full, and any unexpected crash returns a JSON 500 with a request id instead of an HTML error page.
+4. Every request writes one structured run record (`logs/runs.jsonl`) with its status, timings for each stage, the degraded flag and any error.
+
+For testing, `config.FAULT_INJECTION_ENABLED` (off by default) lets a request ask the detector to fail or stall, so the bad path can be triggered on purpose instead of waited for.
+
+**Out of scope, decided before building:**
+
+- I'm not changing any signal, weight, threshold or label text. Unit 8 diagnosed the detection weaknesses; this unit is about failure handling, and mixing the two would make neither measurable.
+- I'm not hosting it. The detector loads a 550 MB model, which doesn't fit the course's 512 MB free tier, so this is Path B (local with logs).
+- I'm not adding retries for the detector. A model that failed on one text will usually fail again on the same text, so a retry mostly adds latency; the fallback is the better answer.
