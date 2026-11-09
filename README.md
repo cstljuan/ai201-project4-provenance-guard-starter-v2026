@@ -1151,13 +1151,67 @@ The other three I'd keep as they are. Criterion 1's cap held on the five most AI
 
 The trade, named: a shorter budget means less waiting for each writer whose request hits a stall, but more healthy requests answered on reduced evidence right after a burst of stalls. That second cost lands on writers too, because a degraded result can't say "human" or "AI" with the full set of signals.
 
+## Stretch: Second Improvement
+
+**What I changed:** one thing, in `resilience.py`. The detector no longer runs in a fixed pool of 4 worker threads. Each call gets its own background thread, and at most 16 calls may be running at once. Past that, the service answers degraded immediately instead of starting another call.
+
+**Which diagnosis pointed at it:** the criterion 5 miss after the first improvement. A timed-out call keeps running for the full stall, and in a 4-worker pool that meant five quick stalls held every worker, so healthy requests queued behind them and timed out too. With a thread per call, a stuck call holds nothing a healthy call needs. The cap of 16 is there because a detector that hangs forever would otherwise pile up threads without limit.
+
+`python run_capstone.py --label after2`, same service settings, same criteria, the 2-second budget kept. Raw output: `results/capstone_2026-11-09_0225_after2.md` and `.json`.
+
+| Criterion | Target | Run 1 | Run 2 | Run 3 | Verdict |
+|---|---|---|---|---|---|
+| 1. A broken detector never leads to an accusation | 10 of 10 | 10/10 | 10/10 | 10/10 | MET |
+| 2. A stalled detector doesn't stall the writer | 5 of 5 under 9.0 s | 5/5 (max 2.02 s) | 5/5 (max 2.02 s) | 5/5 (max 2.02 s) | MET |
+| 3. Refused requests don't use up the quota | 5 of 5 valid accepted | 5/5, 0 x 429 | 5/5, 0 x 429 | 5/5, 0 x 429 | MET |
+| 4. Every request leaves exactly one run record | 20 of 20 | 20/20 | 20/20 | 20/20 | MET |
+| 5. Normal path stays fast right after a stall | 9+ of 10 under 1.0 s, 0 degraded | 10/10 fast, 0 degraded | 10/10 fast, 0 degraded | 10/10 fast, 0 degraded | MET |
+
+**Did it help?** Yes. Criterion 5 went from 4, 0 and 4 of 10 back to 10 of 10 in every trial, with no degraded results, while stalled requests still answer in about 2 seconds instead of 8. Side by side across the three capstone runs:
+
+| | Stall wait (criterion 2) | Criterion 5 after a stall burst |
+|---|---|---|
+| Before (8 s budget, 4-worker pool) | 8.01 to 8.02 s | 10/10 fast, but only because stalls were spaced out |
+| First improvement (2 s budget, 4-worker pool) | 2.01 s | 4, 0, 4 of 10 fast: **MISSED** |
+| Second improvement (2 s budget, thread per call, cap 16) | 2.01 to 2.02 s | 10/10 fast, 0 degraded |
+
+**The trade that's left:** a truly hung detector now leaks up to 16 sleeping threads before the cap kicks in. They cost memory, not CPU, and they end when the stuck call does. The load observation below shows the cap working.
+
+## Stretch: Latency Breakdown
+
+Where the time goes inside one healthy request, from the `stages_ms` and `duration_ms` fields in `logs/runs.jsonl` (`load_test.py::stage_breakdown`, 30 requests at the normal rate):
+
+| Stage | Mean | Median | 95th percentile | Share of the mean |
+|---|---|---|---|---|
+| Signal one (GPT-2 model) | 61.0 ms | 63.3 ms | 75.5 ms | 95% |
+| Signal two (style) | 0.1 ms | 0.1 ms | 0.2 ms | 0% |
+| Signal three (phrases) | 0.2 ms | 0.2 ms | 0.2 ms | 0% |
+| Everything else (parsing, validation, instruction stripping, audit log write) | 2.6 ms | 2.7 ms | 3.0 ms | 4% |
+| **Whole request** | **63.9 ms** | **66.4 ms** | **78.4 ms** | 100% |
+
+The model is nearly all of it. The two text-statistics signals cost a fraction of a millisecond, so making them smarter would be almost free, and any real speed-up has to come from signal one (a smaller model, or caching the score for a text that's been seen before).
+
+## Stretch: Load Observation
+
+`python load_test.py` (`results/capstone_load_2026-11-09_0226.json`). Every request used its own creator_id, so the per-creator rate limit didn't decide anything; this measures the service itself.
+
+| Load | Requests | Statuses | Degraded | Median | 95th percentile | Slowest |
+|---|---|---|---|---|---|---|
+| Normal: 1 per second for 30 s | 30 | {'200': 30} | 0 | 70.6 ms | 82.4 ms | 84.7 ms |
+| Ten times: 10 per second for 30 s | 300 | {'200': 300} | 0 | 42.1 ms | 52.9 ms | 83.9 ms |
+| Stall burst: 24 at once, detector forced to stall | 24 | {'200': 24} | 24 | 2069.6 ms | 2077.7 ms | 2077.7 ms |
+
+**What changed at ten times the rate:** nothing went wrong. All 300 requests came back 200, none degraded, and the 95th percentile stayed under 60 ms. Requests were actually faster than at the normal rate (37.4 ms vs 61.0 ms for the model stage). My best explanation, which I haven't proven: under steady load the laptop's CPU stays at full speed, while one request a second lets it drop to a lower speed between requests. At about 40 ms per request, the service has room for roughly 25 requests a second on one laptop before requests start to wait on each other.
+
+**The stall burst** shows the 16-call cap: 16 requests waited out the 2-second budget, and the other 8 were answered degraded straight away because 16 detector calls were already running. All 24 got an answer, and none was an accusation.
+
 ## What's Still Broken (capstone)
 
-- **Criterion 5 (missed after the fix).** The fix I'd make is to stop abandoned calls from holding workers: cancel a queued call when its request times out (`future.cancel()` works for calls that haven't started), and run the model in a separate process instead of a thread, so a stuck call can be killed and the worker restarted. I stopped because that's a second change, and the unit allows one measured improvement. I'd keep the 2-second budget only together with that fix. On its own, I'd go back to 8 seconds, because a slow answer on full evidence beats a fast answer on partial evidence for most writers.
+- **Criterion 5 was missed after the first fix and is MET again after the second** (thread per call, capped at 16). What's left is that a truly hung detector still holds up to 16 threads until it returns. Running the model in its own process, which can be killed and restarted, would remove that too. I stopped because the remaining cost is memory for a failure I can only simulate, and every criterion now holds.
 - **No circuit breaker.** When the detector is truly down, every request still tries it first. After a few failures in a row the service should skip it for a while and answer degraded right away. I didn't add it because it changes how criterion 1 and criterion 5 behave at the same time, and I couldn't measure both changes separately in one unit.
 - **The run log has no rotation.** `logs/runs.jsonl` grows forever. Fine on a laptop, not on a server.
 
-**The one thing I'd do first with another unit:** move the detector into its own process with a kill-and-restart on timeout. Both the criterion 5 miss and the stall cost trace back to a stuck call that can't be stopped, and that's the only change that fixes the cause rather than the symptom.
+**The one thing I'd do first with another unit:** move the detector into its own process with a kill-and-restart on timeout. The second improvement stopped stuck calls from starving healthy ones, but a stuck call still can't be stopped, and only a separate process fixes that cause rather than working around it.
 
 ## How I Used AI (capstone)
 
@@ -1166,3 +1220,5 @@ The trade, named: a shorter budget means less waiting for each writer whose requ
 **Moment 2: the improvement.** When every criterion came back MET, Claude measured the healthy detector times (median 34 ms, max 60 ms) and proposed lowering the budget from 8 to 2 seconds. Before running it, it predicted that stalled calls would pile up in the 4-worker pool and that criterion 5 might fail. It did. The change stays in the repo with the miss written up, instead of being reverted for a clean run, because the miss is the most useful thing this unit found.
 
 Claude Code also wrote the five capstone criteria, from the brief and the unit 8 findings, and committed them before any capstone test ran (commit "Add capstone criteria"). The tests and every number above come from real runs on my laptop.
+
+**Moment 3: the second improvement (stretch).** After the first improvement broke criterion 5, Claude traced it to timed-out calls holding the 4 pooled workers and replaced the pool with one thread per call, capped at 16. It re-ran all five criteria three times, then added the latency breakdown and the load test. All three stretch features were declared in this README before any of them was built.

@@ -1,0 +1,89 @@
+{
+  "normal_1_per_s": {
+    "requests": 30,
+    "statuses": {
+      "200": 30
+    },
+    "degraded": 0,
+    "p50_ms": 70.6,
+    "p95_ms": 82.4,
+    "max_ms": 84.7
+  },
+  "ten_x_10_per_s": {
+    "requests": 300,
+    "statuses": {
+      "200": 300
+    },
+    "degraded": 0,
+    "p50_ms": 42.1,
+    "p95_ms": 52.9,
+    "max_ms": 83.9
+  },
+  "stall_burst_24": {
+    "requests": 24,
+    "statuses": {
+      "200": 24
+    },
+    "degraded": 24,
+    "p50_ms": 2069.6,
+    "p95_ms": 2077.7,
+    "max_ms": 2077.7
+  },
+  "stall_burst_fast_answers": 8,
+  "breakdown_normal": {
+    "runs": 30,
+    "model": {
+      "mean": 61.0,
+      "p50": 63.3,
+      "p95": 75.5
+    },
+    "style": {
+      "mean": 0.1,
+      "p50": 0.1,
+      "p95": 0.2
+    },
+    "phrase": {
+      "mean": 0.2,
+      "p50": 0.2,
+      "p95": 0.2
+    },
+    "everything_else": {
+      "mean": 2.6,
+      "p50": 2.7,
+      "p95": 3.0
+    },
+    "total": {
+      "mean": 63.9,
+      "p50": 66.4,
+      "p95": 78.4
+    }
+  },
+  "breakdown_ten_x": {
+    "runs": 300,
+    "model": {
+      "mean": 37.4,
+      "p50": 38.2,
+      "p95": 49.1
+    },
+    "style": {
+      "mean": 0.1,
+      "p50": 0.1,
+      "p95": 0.1
+    },
+    "phrase": {
+      "mean": 0.1,
+      "p50": 0.1,
+      "p95": 0.2
+    },
+    "everything_else": {
+      "mean": 2.3,
+      "p50": 2.3,
+      "p95": 2.7
+    },
+    "total": {
+      "mean": 40.0,
+      "p50": 40.8,
+      "p95": 51.6
+    }
+  }
+}
