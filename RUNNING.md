@@ -185,6 +185,73 @@ trace look exactly like a quiet afternoon.
 
 ---
 
+## Capstone run path (unit 9, Path B: local with logs)
+
+This is the run path my capstone uses. It was tested from a fresh clone of this
+repo into an empty folder (see "Tested from a clean checkout" below).
+
+**One command to start it** (after the one-time setup):
+
+```bash
+PORT=5050 .venv/bin/python app.py
+```
+
+`PORT=5050` because macOS uses port 5000 for AirPlay Receiver, and a request to
+`127.0.0.1:5000` gets a 403 from that instead of this service. Every script
+(`run_attacks.py`, `run_eval.py`, `run_appeals.py`, `run_capstone.py`) reads the
+same `PORT`, so export it once in each terminal: `export PORT=5050`.
+
+On startup the service loads the detector model before taking requests
+("Warming up the detector model... ok"). Expect 5 to 15 seconds the first time.
+
+**One-time setup** from a clean checkout:
+
+```bash
+python3.12 -m venv .venv
+.venv/bin/pip install -r requirements-lock.txt
+.venv/bin/python detector.py
+```
+
+The last line downloads the GPT-2 model (about 550 MB) into
+`~/.cache/huggingface` and scores a sample. It only downloads once per machine.
+
+**What the environment needs**
+
+| Thing | Version / size |
+|---|---|
+| Python | 3.12 (tested on 3.12.15). 3.11 and 3.13 are supported by `requirements.txt`; 3.14 is not |
+| Dependencies | `requirements-lock.txt` pins every package to the exact version this ran with (`requirements.txt` keeps the course's ranges) |
+| Model | `gpt2` from Hugging Face, about 550 MB on disk, loaded into memory |
+| Memory | about 1.5 GB free for the service process |
+| Network | only for the one-time install and model download; scoring runs offline |
+
+**Logs it writes**
+
+| File | What's in it |
+|---|---|
+| `logs/runs.jsonl` | One structured record per request (unit 9). Fields are listed in `runlog.py` |
+| `logs/audit.jsonl` | One record per decision, appeal and rejection (units 7 and 8) |
+
+**Testing the bad path on purpose.** Start the service with fault injection
+turned on, then send a header asking the detector to fail or stall:
+
+```bash
+AI201_FAULTS=1 PORT=5050 .venv/bin/python app.py
+curl -X POST http://127.0.0.1:5050/submit -H "Content-Type: application/json" \
+  -H "X-Fault-Inject: detector_error" \
+  -d '{"text": "...at least twenty words of writing...", "creator_id": "me"}'
+```
+
+`detector_error` makes signal one raise; `detector_slow` makes it stall for 20
+seconds, longer than its 8-second budget. Without `AI201_FAULTS=1` the header is
+ignored.
+
+**Running the capstone tests:** `python run_capstone.py --label before` with
+the service running with `AI201_FAULTS=1`. It runs all five criteria three times
+and writes `results/capstone_<date>_<label>.md`.
+
+---
+
 ## Running it somewhere else (unit 9)
 
 Unit 9 asks you to deploy one of your systems. **Read this before you pick
