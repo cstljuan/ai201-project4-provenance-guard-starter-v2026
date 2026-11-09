@@ -127,7 +127,12 @@ RESULTS_DIR = ROOT / "results"
 # How long signal one gets before the service answers without it. A warm call
 # takes well under a second on this laptop; the first call after startup loads
 # the model and can take 10+ seconds, which is why app.py warms it up first.
-DETECTOR_TIMEOUT_SECONDS = 8.0
+# Unit 9 improvement: lowered from 8.0 to 2.0. Measured healthy calls take a
+# median of 34 ms and at most 60 ms (80 calls); the longest text the service
+# accepts (about 4,900 words, truncated to the model's token window) took
+# 116 ms. 8 seconds was about 70 times the slowest real call, and every stalled
+# request paid all of it.
+DETECTOR_TIMEOUT_SECONDS = 2.0
 
 # Request bodies larger than this get a 413 before they're parsed. 5,000 words
 # (the longest text the service accepts) is about 30 KB of JSON.
